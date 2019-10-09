@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import Result from "./Results";
 
 class Question extends Component {
   constructor(props) {
@@ -265,6 +265,7 @@ class Question extends Component {
     ];
 
     this.state = {
+      showQuiz: true, resultButton: false,
       current: 0, dataSet: dataSet,
       // Blue: 0, White: 0, Red: 0, Black: 0, Green: 0,
       Blue: 0, White: 0, Red: 0, Black: 0, Green: 0,
@@ -275,21 +276,22 @@ class Question extends Component {
   } // end constructor
 
 
+
   // onClick of this choice
   handleClick(choice) {
 
-    console.log(this.state.current);
-    console.log(choice);
+    // console.log(this.state.current);
+    // console.log(choice);
 
 
     // determine what was hit and add
-    if (choice == "Blue") {
+    if (choice === "Blue") {
       this.setState({ Blue: this.state.Blue + 1 })
-    } else if (choice == "Green") {
+    } else if (choice === "Green") {
       this.setState({ Green: this.state.Green + 1 })
-    } else if (choice == "Red") {
+    } else if (choice === "Red") {
       this.setState({ Red: this.state.Red + 1 })
-    } else if (choice == "White") {
+    } else if (choice === "White") {
       this.setState({ White: this.state.White + 1 })
     } else {
       this.setState({ Black: this.state.Black + 1 })
@@ -298,7 +300,7 @@ class Question extends Component {
     // if the counter runs out of questions, get results
     if (this.state.current === 9) {
 
-      let getColorResults = () => {
+      const getColorResults = () => {
 
         let colorResults = {
           White: this.state.White,
@@ -314,45 +316,50 @@ class Question extends Component {
         let colorKeys = Object.keys(colorResults);
         let maxColorValue = Math.max.apply(null, colorValues);
         const firstColor = colorKeys.filter(key => colorResults[key] === maxColorValue)
-        console.log(firstColor);
-        console.log(maxColorValue);
-        console.log(colorValues);
-        console.log(colorKeys);
+        // console.log(firstColor);
+        // console.log(maxColorValue);
+        // console.log(colorValues);
+        // console.log(colorKeys);
 
         // if the array of max color answers is 2 or more,
         // we will have to split it into two separate variables
         if (firstColor.length >= 2) {
-  
-            let firstFinal = firstColor[0];
-            let secondFinal = firstColor[1];
-            console.log(firstFinal);
-            console.log(secondFinal);
-            return(firstFinal, secondFinal)
-          
-        // else the max is already 1, 
-        // we'll have to splice and get a second
+
+          let firstFinal = firstColor[0];
+          let secondFinal = firstColor[1];
+          console.log(firstFinal);
+          console.log(secondFinal);
+          this.setState({ current: 0 });
+          this.setState({ showQuiz: false });
+          this.setState({ resultButton: true });
+          this.setState({ resultColor1: firstFinal });
+          this.setState({ resultcolor2: secondFinal });
+          return (firstFinal, secondFinal);
+
+          // else the max is already 1, 
+          // we'll have to splice and get a second
         } else {
-        
-          console.log(firstColor)
+
+
           let array2 = colorValues.splice(colorValues.indexOf(maxColorValue), 2);
           const max2 = Math.min.apply(null, array2);
           const secondColor = colorKeys.filter(key => colorResults[key] === max2);
+          console.log(firstColor)
           console.log(secondColor);
-          console.log(array2);
-          return(firstColor, secondColor)
+          // console.log(array2);
+          // console.log(maxColorValue);
+          // this.setState({resultColor1: firstColor}, {resultcolor2: secondColor})
+          this.setState({ current: 0 });
+          this.setState({ showQuiz: false });
+          this.setState({ resultButton: true });
+          this.setState({ resultColor1: firstColor });
+          this.setState({ resultcolor2: secondColor });
+          return (firstColor, secondColor);
+
         }
 
-
-
-        this.setState({ current: 0 })
       }
       getColorResults();
-      // this.setState({ Blue: 0 })
-      // this.setState({ Red: 0 })
-      // this.setState({ Black: 0 })
-      // this.setState({ Green: 0 })
-      // this.setState({ White: 0 })
-
 
     } else {
       this.setState({ current: this.state.current + 1 })
@@ -363,12 +370,31 @@ class Question extends Component {
 
 
   render() {
-    return (
-      <div>
+
+    const doingQuiz = this.state.showQuiz;
+    let card;
+    if (doingQuiz) {
+      card = <>
         <ScoreArea Counter={this.state.current}
           Black={this.state.Black} Blue={this.state.Blue} Red={this.state.Red}
           Green={this.state.Green} White={this.state.White} />
         <QuizArea handleClick={this.handleClick} dataSet={this.state.dataSet[this.state.current]} />
+      </>
+    } else {
+      card =
+        <>
+          <Result title={"The results are in!"}
+            color1={this.state.resultColor1}
+            color2={this.state.resultcolor2}>
+            <p>Your first color is: {this.state.resultColor1}</p>
+            <p>Second is {this.state.resultcolor2}</p>
+          </Result>
+        </>
+    }
+
+    return (
+      <div>
+        {card}
       </div>
     )
   }

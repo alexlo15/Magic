@@ -4,15 +4,15 @@ import Container from '../components/Container';
 import Row from '../components/Row';
 import Column from '../components/Column';
 import Card from '../components/Card';
-import quizQuestions from "../utils/quizQuestions";
+// import quizQuestions from "../utils/quizQuestions";
 import Question from "../components/Question";
 // import { mtgSearch } from "../utils/API"
 
 class Quiz extends Component {
 
     state = {
-        showQuestions: true,
-        showIntro: false,
+        showQuestions: false,
+        showIntro: true,
         counter: 0,
         questionId: 1,
         question: "",
@@ -38,15 +38,15 @@ class Quiz extends Component {
         });
     };
 
-    ques = () => {
+    // ques = () => {
 
-        const answerOptions = quizQuestions.map(question => question.answers)
-        this.setState({
-            question: quizQuestions[0].question,
-            answerOptions: answerOptions[0]
-        })
+    //     const answerOptions = quizQuestions.map(question => question.answers)
+    //     this.setState({
+    //         question: quizQuestions[0].question,
+    //         answerOptions: answerOptions[0]
+    //     })
 
-    };
+    // };
 
 
     render() {

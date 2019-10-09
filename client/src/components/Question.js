@@ -266,8 +266,8 @@ class Question extends Component {
 
     this.state = {
       current: 0, dataSet: dataSet,
+      // Blue: 0, White: 0, Red: 0, Black: 0, Green: 0,
       Blue: 0, White: 0, Red: 0, Black: 0, Green: 0,
-      Colors: { Blue: 0, White: 0, Red: 0, Black: 0, Green: 0, },
       resultColor1: "", resultcolor2: "",
     }
     this.handleClick = this.handleClick.bind(this)
@@ -284,22 +284,40 @@ class Question extends Component {
     // let red = 0;
     // let green = 0;
 
-    if (choice === Blue) {
-      this.setState({ Blue: this.state.Colors.Blue + 1 })
-    } else if (choice === Green) {
-      this.setState({ Green: this.state.Colors.Green + 1 })
-    } else if (choice === Red) {
-      this.setState({ Red: this.state.Colors.Red + 1 })
-    } else if (choice === White) {
-      this.setState({ White: this.state.Colors.White + 1 })
+    if (choice == "Blue") {
+      this.setState({ Blue: this.state.Blue + 1 })
+    } else if (choice == "Green") {
+      this.setState({ Green: this.state.Green + 1 })
+    } else if (choice == "Red") {
+      this.setState({ Red: this.state.Red + 1 })
+    } else if (choice == "White") {
+      this.setState({ White: this.state.White + 1 })
     } else {
-      this.setState({ Black: this.state.Colors.Black + 1 })
+      this.setState({ Black: this.state.Black + 1 })
     }
 
     if (this.state.current === 9) {
       let getColorResults = () => {
-        const colorsAnswer = this.state.Colors;
-        console.log(colorsAnswer);
+
+        const answersCount = this.state
+        const colorKeys = Object.keys(answersCount);
+        const getColorsonly = colorKeys.filter(value => value >= 0);
+        const keyValues = getColorsonly.map(key => answersCount[key])
+        const maxValue = Math.max.apply(null, keyValues)
+        console.log(keyValues);
+        console.log(getColorsonly);
+        console.log(colorKeys);
+        console.log(maxValue);
+        const firstColor = colorKeys.filter(key => this.state[key] === maxValue)
+        const array2 = keyValues.splice(keyValues.indexOf(maxValue), 2); // remove max from the array
+        const max2 = Math.max.apply(null, maxValue)
+        const secondColor = maxValue.filter(key => this.state[key] === max2);
+
+        console.log(firstColor)
+        console.log(array2)
+        console.log(max2)
+        console.log(secondColor)
+
         this.setState({ current: 0 })
       }
       getColorResults();
@@ -322,8 +340,8 @@ class Question extends Component {
     return (
       <div>
         <ScoreArea Counter={this.state.current}
-          Black={this.state.Colors.Black} Blue={this.state.Colors.Blue} Red={this.state.Colors.Red}
-          Green={this.state.Colors.Green} White={this.state.Colors.White} />
+          Black={this.state.Black} Blue={this.state.Blue} Red={this.state.Red}
+          Green={this.state.Green} White={this.state.White} />
         <QuizArea handleClick={this.handleClick} dataSet={this.state.dataSet[this.state.current]} />
       </div>
     )
@@ -346,7 +364,7 @@ function Answer(props) {
 function AnswerList(props) {
   var answers = []
   for (let i = 0; i < props.dataSet.answers.length; i++) {
-    answers.push(<Answer choice={props.dataSet.answers[i].type.toString()} handleClick={props.handleClick} answer={props.dataSet.answers[i].content} />)
+    answers.push(<Answer key={props.dataSet.answers[i].type.toString()} choice={props.dataSet.answers[i].type.toString()} handleClick={props.handleClick} answer={props.dataSet.answers[i].content} />)
   }
   return (
     <div>

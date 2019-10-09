@@ -274,16 +274,15 @@ class Question extends Component {
 
   } // end constructor
 
+
+  // onClick of this choice
   handleClick(choice) {
 
     console.log(this.state.current);
     console.log(choice);
-    // let blue = 0;
-    // let black = 0;
-    // let white = 0;
-    // let red = 0;
-    // let green = 0;
 
+
+    // determine what was hit and add
     if (choice == "Blue") {
       this.setState({ Blue: this.state.Blue + 1 })
     } else if (choice == "Green") {
@@ -296,27 +295,54 @@ class Question extends Component {
       this.setState({ Black: this.state.Black + 1 })
     }
 
+    // if the counter runs out of questions, get results
     if (this.state.current === 9) {
+
       let getColorResults = () => {
 
-        const answersCount = this.state
-        const colorKeys = Object.keys(answersCount);
-        const getColorsonly = colorKeys.filter(value => value >= 0);
-        const keyValues = getColorsonly.map(key => answersCount[key])
-        const maxValue = Math.max.apply(null, keyValues)
-        console.log(keyValues);
-        console.log(getColorsonly);
-        console.log(colorKeys);
-        console.log(maxValue);
-        const firstColor = colorKeys.filter(key => this.state[key] === maxValue)
-        const array2 = keyValues.splice(keyValues.indexOf(maxValue), 2); // remove max from the array
-        const max2 = Math.max.apply(null, maxValue)
-        const secondColor = maxValue.filter(key => this.state[key] === max2);
+        let colorResults = {
+          White: this.state.White,
+          Blue: this.state.Blue,
+          Black: this.state.Black,
+          Red: this.state.Red,
+          Green: this.state.Green
+        }
 
-        console.log(firstColor)
-        console.log(array2)
-        console.log(max2)
-        console.log(secondColor)
+        // gets the colors keys and values, 
+        // starts doing math and finds top
+        let colorValues = Object.values(colorResults);
+        let colorKeys = Object.keys(colorResults);
+        let maxColorValue = Math.max.apply(null, colorValues);
+        const firstColor = colorKeys.filter(key => colorResults[key] === maxColorValue)
+        console.log(firstColor);
+        console.log(maxColorValue);
+        console.log(colorValues);
+        console.log(colorKeys);
+
+        // if the array of max color answers is 2 or more,
+        // we will have to split it into two separate variables
+        if (firstColor.length >= 2) {
+  
+            let firstFinal = firstColor[0];
+            let secondFinal = firstColor[1];
+            console.log(firstFinal);
+            console.log(secondFinal);
+            return(firstFinal, secondFinal)
+          
+        // else the max is already 1, 
+        // we'll have to splice and get a second
+        } else {
+        
+          console.log(firstColor)
+          let array2 = colorValues.splice(colorValues.indexOf(maxColorValue), 2);
+          const max2 = Math.min.apply(null, array2);
+          const secondColor = colorKeys.filter(key => colorResults[key] === max2);
+          console.log(secondColor);
+          console.log(array2);
+          return(firstColor, secondColor)
+        }
+
+
 
         this.setState({ current: 0 })
       }
@@ -389,11 +415,11 @@ function ScoreArea(props, Colors) {
   return (
     <div>
       <h3>Question: {props.Counter + 1}</h3>
-      <h4>White: {props.White}</h4>
-      <h4>Green: {props.Green}</h4>
-      <h4>Black: {props.Black}</h4>
-      <h4>Red: {props.Red}</h4>
-      <h4>Blue: {props.Blue}</h4>
+      <h4>W: {props.White}</h4>
+      <h4>U: {props.Blue}</h4>
+      <h4>B: {props.Black}</h4>
+      <h4>R: {props.Red}</h4>
+      <h4>G: {props.Green}</h4>
     </div>
   )
 }

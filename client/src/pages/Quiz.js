@@ -11,8 +11,8 @@ import Question from "../components/Question";
 class Quiz extends Component {
 
     state = {
-        showQuestions: false,
-        showIntro: true,
+        showQuestions: true,
+        showIntro: false,
         counter: 0,
         questionId: 1,
         question: "",

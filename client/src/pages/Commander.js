@@ -40,7 +40,7 @@ class Commander extends Component {
                     cardURI: random.uri,
                     cardCMC: random.mana_cost,
                     colorIdentity: random.color_identity,
-                    cardPic: random.image_uris.normal
+                    cardPic: random.image_uris.small
                 });
 
             })

@@ -23,7 +23,9 @@ const Result = ({ bg, title, color1, color2, children }) => {
         let color2Shortened = color2[0];
         console.log(color2Shortened);
     } else {
-        console.log(color2);
+        let color2Shortened = color2;
+        console.log(color2Shortened);
+
     }
 
 

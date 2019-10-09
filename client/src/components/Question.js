@@ -387,7 +387,7 @@ class Question extends Component {
             color1={this.state.resultColor1}
             color2={this.state.resultcolor2}>
             <p>Your first color is: {this.state.resultColor1}</p>
-            <p>Second is {this.state.resultcolor2}</p>
+            <p>Second is {this.state.resultcolor2[0]}</p>
           </Result>
         </>
     }

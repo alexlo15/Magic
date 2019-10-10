@@ -1,4 +1,4 @@
-const mtg = require("mtgsdk");
+// const mtg = require("mtgsdk");
 const { User } = require('../models');
 
 const saveUserResult = (req, res) => {

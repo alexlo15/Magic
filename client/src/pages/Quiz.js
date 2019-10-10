@@ -13,40 +13,52 @@ class Quiz extends Component {
     state = {
         showQuestions: false,
         showIntro: true,
-        counter: 0,
-        questionId: 1,
-        question: "",
-        answerOptions: [],
-        answer: "",
-        colorCount: {
-            Green: 0,
-            White: 0,
-            Blue: 0,
-            Red: 0,
-            Black: 0
-        },
-        resultColor1: '',
-        resultColor2: '',
+        userName: "",
+        error: null,
+        // counter: 0,
+        // questionId: 1,
+        // question: "",
+        // answerOptions: [],
+        // answer: "",
+        // colorCount: {
+        //     Green: 0,
+        //     White: 0,
+        //     Blue: 0,
+        //     Red: 0,
+        //     Black: 0
+        // },
+        // resultColor1: '',
+        // resultColor2: '',
     };
 
     // start quiz goes to question 1 from 
     // the intro card
-    startQuiz = e => {
+
+    handleInputChange = event => {
+        const { name, value } = event.target;
+        this.setState({
+            [name]: value
+        });
+    };
+
+    startQuiz = () => {
         this.setState({
             showQuestions: true,
             showIntro: false,
         });
+        console.log(this.state.userName);
     };
 
-    // ques = () => {
+    handleFormSubmit = event => {
+        event.preventDefault();
 
-    //     const answerOptions = quizQuestions.map(question => question.answers)
-    //     this.setState({
-    //         question: quizQuestions[0].question,
-    //         answerOptions: answerOptions[0]
-    //     })
+        if (this.state.userName === '') {
+            return this.setState({ error: 'Please enter your name.' });
+        }
 
-    // };
+        this.startQuiz();
+
+    };
 
 
     render() {
@@ -56,14 +68,27 @@ class Quiz extends Component {
         let card;
         if (intro) {
             card = <Card title={"Commander Personality Quiz"}>
-                <form onSubmit={this.startQuiz}>
+                <form onSubmit={this.handleFormSubmit}>
+                    <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Enter your name!"
+                        onChange={this.handleInputChange}
+                        value={this.state.userName}
+                        name="userName"
+                    />
+                    {this.state.error && !this.state.userName.length && (
+                        <div className="alert alert-danger my-2">
+                            {this.state.error}
+                        </div>
+                    )}
                     <button type="submit" className="btn btn-block btn-dark mt-2">
-                        Start!
-                    </button>
+                        Start Quiz!
+                  </button>
                 </form>
             </Card>
         } else {
-            card = <Question>
+            card = <Question user={this.state.userName}>
 
             </Question>
         }

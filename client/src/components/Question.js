@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Result from "./Results";
+// import Quiz from "../pages/Quiz";
+// import { userInfo } from "os";
 
 class Question extends Component {
   constructor(props) {
@@ -269,11 +271,16 @@ class Question extends Component {
       current: 0, dataSet: dataSet,
       // Blue: 0, White: 0, Red: 0, Black: 0, Green: 0,
       Blue: 0, White: 0, Red: 0, Black: 0, Green: 0,
-      resultColor1: "", resultcolor2: "",
+      resultColor1: "", resultcolor2: "", userInfo: this.props.user,
     }
     this.handleClick = this.handleClick.bind(this)
 
   } // end constructor
+
+  componentDidMount() {
+
+    console.log(this.state.userInfo);
+  };
 
 
 
@@ -323,7 +330,7 @@ class Question extends Component {
 
         // if the array of max color answers is 2 or more,
         // we will have to split it into two separate variables
-        if (firstColor.length >= 2) {
+        if (firstColor.length > 1) {
 
           let firstFinal = firstColor[0];
           let secondFinal = firstColor[1];
@@ -344,8 +351,17 @@ class Question extends Component {
           let array2 = colorValues.splice(colorValues.indexOf(maxColorValue), 2);
           const max2 = Math.min.apply(null, array2);
           const secondColor = colorKeys.filter(key => colorResults[key] === max2);
+          // sets the second color to 1 thing if multiple are passed (ie. tied)
+          if (secondColor === "White" || secondColor === "Red" ||
+            secondColor === "Green" || secondColor === "Blue" || secondColor === "Black") {
+            const color2Shortened = secondColor;
+            console.log(color2Shortened);
+          } else {
+            const color2Shortened = secondColor[0];
+            console.log(color2Shortened);
+          }
           console.log(firstColor)
-          console.log(secondColor);
+          // console.log(secondColor);
           // console.log(array2);
           // console.log(maxColorValue);
           // this.setState({resultColor1: firstColor}, {resultcolor2: secondColor})
@@ -386,8 +402,7 @@ class Question extends Component {
           <Result title={"The results are in!"}
             color1={this.state.resultColor1}
             color2={this.state.resultcolor2}>
-            <p>Your first color is: {this.state.resultColor1}</p>
-            <p>Second is {this.state.resultcolor2[0]}</p>
+            <h3>Congrats {this.state.userInfo}, you finished!</h3>
           </Result>
         </>
     }

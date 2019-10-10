@@ -3,13 +3,13 @@ const router = require('express').Router();
 const {
 
     getUserResults,
-    saveUsersResult
+    saveUserResult
 
-} = require("../../controllers/mtg-controller")
+} = require("../../controllers/user-controller")
 
 router
     .route('/quiz')
     .get(getUserResults)
-    // .post(saveUsersResult);
+    .post(saveUserResult);
 
 module.exports = router;

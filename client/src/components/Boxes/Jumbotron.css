@@ -1,0 +1,59 @@
+.btn-lg{
+
+    font-size: 30px;
+    /* padding-right: 20%; */
+    color: antiquewhite;
+    -webkit-transition:all 0.5s ease-out;
+    -moz-transition:all 0.5s ease-out;
+    -ms-transition:all 0.5s ease-out;
+    -o-transition:all 0.5s ease-out;
+    transition:all 0.5s ease-out;
+
+}
+
+.mediaIcons{
+
+    float: left;    
+
+}
+.mediaIcons:hover{
+
+    color: antiquewhite;
+
+}
+
+.header{
+
+    background-image: url("jumbopaper.jpg");
+    background-size: cover;
+
+}
+
+h1{
+
+    text-align: center;
+    font-size: 50px;
+    color: rgba(18, 42, 18, 0.877);
+    text-shadow:
+		-1px -1px 0 rgba(13, 116, 110, 0.678),
+		1px -1px 0 rgba(13, 116, 110, 0.678),
+		-1px 1px 0 rgba(13, 116, 110, 0.678),
+        1px 1px 0 rgba(13, 116, 110, 0.678);
+        -webkit-transition:all 0.5s ease-out;
+  -moz-transition:all 0.5s ease-out;
+  -ms-transition:all 0.5s ease-out;
+  -o-transition:all 0.5s ease-out;
+  transition:all 0.5s ease-out;
+        
+}
+
+h1:hover, .btn:hover{
+
+    color: rgb(50, 144, 251);
+    -webkit-transform:scale(1.3);
+    -moz-transform:scale(1.3);
+    -ms-transform:scale(1.3);
+    -o-transform:scale(1.3);
+    transform:scale(1.3);
+
+}

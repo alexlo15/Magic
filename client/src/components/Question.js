@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "./Results.css"
 // import Container from "./Container";
-import Row from "./Row";
-import Column from "./Column";
-import Card from '../components/Card';
+import Row from "./Boxes/Row";
+import Column from "./Boxes/Column";
+import Card from './Boxes/Card';
 // import Quiz from "../pages/Quiz";
 // import { cpus } from "os";
 // import { userInfo } from "os";

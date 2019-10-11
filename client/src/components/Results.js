@@ -1,8 +1,8 @@
 import React from 'react';
 import "./Results.css"
-import Container from "./Container";
-import Row from "./Row";
-import Column from "./Column";
+import Container from "./Boxes/Container";
+import Row from "./Boxes/Row";
+import Column from "./Boxes/Column";
 
 const Result = ({ bg, title, color1, color2, children }) => {
 

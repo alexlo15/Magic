@@ -4,7 +4,7 @@ import "./Results.css"
 import Row from "./Boxes/Row";
 import Column from "./Boxes/Column";
 import Card from './Boxes/Card';
-import { saveUser } from "../utils/API";
+import {saveUser} from "../utils/API";
 // import Quiz from "../pages/Quiz";
 // import { cpus } from "os";
 // import { userInfo } from "os";
@@ -278,7 +278,7 @@ class Question extends Component {
       Blue: 0, White: 0, Red: 0, Black: 0, Green: 0,
       resultColor1: "", resultColor2: "",
       userInfo: this.props.user,
-      guild: "",
+      guild: "", guildpic: "",
 
     }
     this.handleClick = this.handleClick.bind(this)
@@ -322,21 +322,24 @@ class Question extends Component {
           Blue: this.state.Blue,
           Black: this.state.Black,
           Red: this.state.Red,
-          Green: this.state.Green,
+          Green: this.state.Green
         }
 
         // gets the colors keys and values, 
-        // starts doing math and finds top       
-        // sets the colorValue for #1 highest
-        // identifies the key for that matching highest value
+        // starts doing math and finds top
         let colorValues = Object.values(colorResults);
         let colorKeys = Object.keys(colorResults);
+        // sets the colorValue for #1 highest
         let maxColorValue = Math.max.apply(null, colorValues);
+        // identifies the key for that matching highest value
         const firstColor = colorKeys.filter(key => colorResults[key] === maxColorValue)
 
 
-        // console.log(firstColor); console.log(secondColor); console.log(maxColorValue); console.log(colorKeys);
+        console.log(firstColor);
+        // console.log(secondColor);
+        // console.log(maxColorValue);
         console.log(colorValues);
+        // console.log(colorKeys);
 
         // if the array of max color answers is 2 or more,
         // we will have to split it into two separate variables
@@ -344,13 +347,12 @@ class Question extends Component {
 
           let firstFinal = firstColor[0];
           let secondFinal = firstColor[1];
+
           this.setState({ current: 0 });
           this.setState({ showQuiz: false });
           this.setState({ resultButton: true });
           this.setState({ resultColor1: firstFinal });
           this.setState({ resultColor2: secondFinal });
-          console.log(firstFinal);
-          console.log(secondFinal);
           console.log(this.state.resultColor1);
           console.log(this.state.resultColor2);
           return (firstFinal, secondFinal);
@@ -361,113 +363,67 @@ class Question extends Component {
 
           let firstFinal = firstColor;
           let arrayFor2 = colorValues.sort((a, b) => (a > b) ? 1 : -1)
-          // console.log(arrayFor2);
+          console.log(arrayFor2);
           // array2 is going to be the highest number split from the array, 
-          arrayFor2.splice(4, 1);
+          let array2 = arrayFor2.splice(4, 1);
           // so that when we do mathMax now the highest element will be #2 technically
           let secondNum = Math.max.apply(null, arrayFor2);
-          // console.log(secondNum);
+          console.log(secondNum);
           const secondTry = colorKeys.filter(key => colorResults[key] === secondNum);
-          let secondFinal = secondTry;
-          console.log(secondTry);
+          let secondFinal;
           if (!secondTry[1]) {
-            // const secondFinal = secondTry;
-            console.log(firstFinal);
+            const secondFinal = secondTry;
             console.log(secondFinal);
             this.setState({ resultColor1: firstFinal });
             this.setState({ resultColor2: secondFinal });
-
+            
           } else {
             const secondFinal = secondTry[0];
-            console.log(firstFinal);
             console.log(secondFinal);
             this.setState({ resultColor1: firstFinal });
             this.setState({ resultColor2: secondFinal });
           }
+          // let colorValues = Object.values(colorResults);
+          // let colorKeys = Object.keys(colorResults);
+          // let maxColorValue2 = Math.max.apply(null, array2);
+          // const firstColor = colorKeys.filter(key => colorResults[key] === maxColorValue)
 
-          console.log(firstFinal);
-          console.log(secondFinal);
+
+          // const max2 = Math.min.apply(null, array2);
+          // const secondFinal = colorKeys.filter(key => colorResults[key] === max2);
+          // let ourSecond;
+          // if (secondFinal > 1) {
+          //   let ourSecond = secondFinal[0];
+          //   this.setState({ resultColor2: ourSecond })
+          // }
+
+          // console.log(firstColor);
+          // console.log(ourSecond);
+          // console.log(array2);
+          // console.log(maxColorValue);
+          // this.setState({resultColor1: firstColor}, {resultColor2: secondFinal})
           this.setState({ current: 0 });
           this.setState({ showQuiz: false });
           this.setState({ resultButton: true });
-
-
-          const guildPic = (oneColor, twoColor) => {
-            let firstGuild = oneColor;
-            let secondGuild;
-            if (!twoColor[1]) {
-              secondGuild = twoColor;
-            } else {
-              secondGuild = twoColor[0];
-            }
-            console.log(firstGuild);
-            console.log(secondGuild);
-            if ((firstGuild == "Red" & secondGuild == "Green") || (firstGuild == "Green" & secondGuild == "Red")) {
-              console.log("gruul");
-              this.setState({ guild: "Gruul Clan" });
-            }
-            // 2 boros
-            else if ((firstGuild == "Red" && secondGuild == "White") || (firstGuild == "White" && secondGuild == "Red")) {
-              console.log("boros");
-              this.setState({ guild: "Boros Legion" });
-            }
-            // 3 izzet
-            else if ((firstGuild == "Red" && secondGuild == "Blue") || (firstGuild == "Blue" && secondGuild == "Red")) {
-              console.log("izzet");
-              this.setState({ guild: "Izzet League" });
-            }
-            // 4 rakdos
-            else if ((firstGuild == "Red" && secondGuild == "Black") || (firstGuild == "Black" && secondGuild == "Red")) {
-              console.log("rakdos");
-              this.setState({ guild: "Rakdos Cult" });
-            }
-            // 5 Azorius
-            else if ((firstGuild == "Blue" && secondGuild == "White") || (firstGuild == "White" && secondGuild == "Blue")) {
-              console.log("azor");
-              this.setState({ guild: "Azorius Senate" });
-            }
-            // 6 orzhov
-            else if ((firstGuild == "Black" && secondGuild == "White") || (firstGuild == "White" && secondGuild == "Black")) {
-              console.log("orzhov");
-              this.setState({ guild: "Orzhov Syndicate" });
-            }
-            // 7 selesnaya
-            else if ((firstGuild == "Green" && secondGuild == "White") || (firstGuild == "White" && secondGuild == "Green")) {
-              console.log("seles");
-              this.setState({ guild: "Selesnaya Conclave" });
-            }
-            // 8 simic
-            else if ((firstGuild == "Blue" && secondGuild == "Green") || (firstGuild == "Green" && secondGuild == "Blue")) {
-              console.log("simic");
-              this.setState({ guild: "Simic Combine" });
-            }
-            // 9 golgari
-            else if ((firstGuild == "Black" && secondGuild == "Green") || (firstGuild == "Green" && secondGuild == "Black")) {
-              console.log("golgi");
-              this.setState({ guild: "Golgari Swarm" });
-            }
-            // 10 dimir
-            else {
-              // ((firstGuild = "Black" && secondGuild = "Blue") || (firstGuild = "Blue" && secondGuild = "Black")) {
-              console.log("dimir");
-              this.setState({ guild: "House Dimir" });
-
-            }
-
-          };
-
-          guildPic(firstFinal, secondFinal);
+          // this.setState({ resultColor1: firstFinal });
+          // this.setState({ resultColor2: secondFinal });
+          console.log(this.state.resultColor1);
+          console.log(this.state.resultColor2);
           return (firstFinal, secondFinal);
+
+
         }
+
       }
 
-      getColorResults();
 
+      // const postResults = ()
+
+      getColorResults();
 
     } else {
       this.setState({ current: this.state.current + 1 })
     }
-
   }
 
 
@@ -494,9 +450,7 @@ class Question extends Component {
       card =
         <>
           <ResultsArea user={this.state.userInfo} Color1={this.state.resultColor1} Color2={this.state.resultColor2} />
-          <GuildArea Guild={this.state.guild} />
-          {/* <MyColorGraph Black={this.state.Black} Blue={this.state.Blue} Red={this.state.Red}
-            Green={this.state.Green} White={this.state.White} /> */}
+          <GuildArea Guild={this.state.guild} Guildpic={this.state.guildpic} />
         </>
     }
 
@@ -532,6 +486,7 @@ function AnswerList(props) {
     </div>
   )
 }
+
 // Quiz Area
 function QuizArea(props) {
   return (
@@ -541,6 +496,7 @@ function QuizArea(props) {
     </div>
   )
 }
+
 // Score Area
 function ScoreArea(props, Colors) {
   return (
@@ -579,37 +535,12 @@ function GuildArea(props) {
         <Column xs={12} md={6} lg={6}>
           <Card title={"Your Guild is..."}>
             <h3>{props.Guild}</h3>
-            <GetDamnIcons ofThis={props.guild} />
+            <p>{props.Guildpic}</p>
           </Card>
         </Column>
       </Row>
     </div>
   )
-}
-
-function GetDamnIcons(ofThis) {
-
-  if (ofThis === "Rakdos Cult") {
-    return (<i className="ss ss-rakdos"></i>)
-  } else if (ofThis === "Boros Legion") {
-    return (<i className="ss ss-boros"></i>)
-  } else if (ofThis === "Simic Combine") {
-    return (<i className="ss ss-simic"></i>)
-  } else if (ofThis === "Orzhov Syndicate") {
-    return (<i className="ss ss-orzhov"></i>)
-  } else if (ofThis === "Golgari Swarm") {
-    return (<i className="ss ss-golgari"></i>)
-  } else if (ofThis === "Izzet League") {
-    return (<i className="ss ss-izzet"></i>)
-  } else if (ofThis == "Selesnaya Conclave") {
-    return (<i className="ss ss-selesnaya"></i>)
-  } else if (ofThis === "House Dimir") {
-    return (<i className="ss ss-dimir"></i>)
-  } else if (ofThis === "Azorious Senate") {
-    return (<i className="ss ss-azorius"></i>)
-  } else 
-  return (<i className="ss ss-gruul"></i>)
-  
 }
 
 

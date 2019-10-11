@@ -8,7 +8,7 @@ const {
 } = require("../../controllers/user-controller")
 
 router
-    .route('/quiz')
+    .route('/')
     .get(getUserResults)
     .post(saveUserResult);
 

@@ -9,25 +9,30 @@ const userSeed = [
         userName: "Ash Ketchum",
         color1: "Red",
         color2: "Blue",
-        guildMatch: "Izzet League"
+        guildMatch: "Izzet League",
+        timestamp: Date.now
     },
     {
         userName: "Misty Rainforest",
         color1: "Green",
         color2: "Blue",
-        guildMatch: "Simic Combine"
+        guildMatch: "Simic Combine",
+        timestamp: Date.now
     },
     {
         userName: "Brook Lopez",
         color1: "Black",
         color2: "Green",
-        guildMatch: "Golgari Swarm"
+        guildMatch: "Golgari Swarm",
+        timestamp: Date.now
+
     },
     {
         userName: "Lebron James",
         color1: "White",
         color2: "Black",
-        guildMatch: "Orzhov Syndicate"
+        guildMatch: "Orzhov Syndicate",
+        timestamp: Date.now
     },
 
 ];

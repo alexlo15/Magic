@@ -4,7 +4,7 @@ import Search from './pages/Search';
 import Saved from './pages/Saved';
 import Commander from './pages/Commander';
 import Quiz from './pages/Quiz';
-import Results from './components/Results';
+import Results from './pages/Results';
 import UhOh404 from './pages/UhOh404';
 
 const App = () => {

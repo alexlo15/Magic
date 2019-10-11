@@ -15,6 +15,10 @@ const UserSchema = new Schema({
     },
     guildMatch: {
         type: String
+    },
+    timestamp: {
+        type: Date,
+        default: Date.now        
     }
 });
 

@@ -1,0 +1,126 @@
+import React, { Component } from 'react';
+import Jumbotron from '../components/Boxes/Jumbotron';
+import Container from '../components/Boxes/Container';
+import Row from '../components/Boxes/Row';
+import Column from '../components/Boxes/Column';
+import Card from '../components/Boxes/Card';
+// import Result from '../components/Results';
+import { getAllUsers } from "../utils/API";
+import {Chart} from "react-google-charts";
+
+class Results extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            scoreData: [],
+        }
+    };
+
+    componentDidMount() {
+        this.getScores();
+        console.log(this.state.scoreData);
+    };
+
+    getScores = () => {
+        getAllUsers()
+            .then(res => {
+                this.setState({
+                    scoreData: res.data
+                });
+                console.log(this.state.scoreData)
+            })
+            .catch(err => console.log(err));
+    }
+
+    render() {
+
+        let scores = this.state.scoreData
+        console.log(scores)
+        let eachRow = scores.map(user => {
+
+
+
+            return (
+                <tr key={user._id}>
+                    <td>{user.userName}</td>
+                    <td>{user.color1}</td>
+                    <td>{user.color2}</td>
+                    <td>{user.guildMatch}</td>
+                    <td>{user.timestamp}</td>
+                </tr>
+            )
+        })
+
+        return (
+            <>
+                <Jumbotron
+                    fluid
+                    bg={'dark'}
+                    color={'light'}
+                    pageTitle={'Viewing Saved Books'} />
+                <Container>
+                    <Row>
+                        <Column xs={12} md={6} lg={6}>
+                            <Card title={"All the Nerd Results"}>
+                                <table id='table'>
+                                    <tbody className="scoreTableBody">
+
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Color 1</th>
+                                            <th>Color 2</th>
+                                            <th>Guild</th>
+                                            <th>Date</th>
+                                        </tr>
+                                        {eachRow}
+                                    </tbody>
+                                </table>
+                            </Card>
+                        </Column>
+                        <Column xs={12} md={6} lg={6}>
+                            <Card title={"Guild Popularity Contest"}>
+                                <Chart
+                                    width={'500px'}
+                                    height={'300px'}
+                                    chartType="BarChart"
+                                    loader={<div>Loading Chart</div>}
+                                    data={[
+                                        ['City', '2010 Population', '2000 Population'],
+                                        ['New York City, NY', 8175000, 8008000],
+                                        ['Los Angeles, CA', 3792000, 3694000],
+                                        ['Chicago, IL', 2695000, 2896000],
+                                        ['Houston, TX', 2099000, 1953000],
+                                        ['Philadelphia, PA', 1526000, 1517000],
+                                    ]}
+                                    options={{
+                                        title: 'Population of Largest U.S. Cities',
+                                        chartArea: { width: '50%' },
+                                        isStacked: true,
+                                        hAxis: {
+                                            title: 'Total Population',
+                                            minValue: 0,
+                                        },
+                                        vAxis: {
+                                            title: 'Guild',
+                                        },
+                                    }}
+                                    // For tests
+                                    rootProps={{ 'data-testid': '3' }}
+                                />
+                            </Card>
+                        </Column>
+                    </Row>
+                </Container>
+
+
+            </>
+        )
+
+    };
+
+
+
+
+};
+
+export default Results;

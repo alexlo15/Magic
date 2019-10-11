@@ -5,16 +5,21 @@ const { Schema } = mongoose;
 const UserSchema = new Schema({
 
     userName: {
-        type: String
+        type: String,
+        required: true,
+
     },
     color1: {
-        type: String
+        type: String,
+        required: true,
     },
     color2: {
-        type: String
+        type: String,
+        required: true,
     },
     guildMatch: {
-        type: String
+        type: String,
+        required: true,
     },
     timestamp: {
         type: Date,

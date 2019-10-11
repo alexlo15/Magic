@@ -334,7 +334,6 @@ class Question extends Component {
         let maxColorValue = Math.max.apply(null, colorValues);
         const firstColor = colorKeys.filter(key => colorResults[key] === maxColorValue)
 
-
         // console.log(firstColor); console.log(secondColor); console.log(maxColorValue); console.log(colorKeys);
         console.log(colorValues);
 
@@ -391,8 +390,18 @@ class Question extends Component {
           this.setState({ showQuiz: false });
           this.setState({ resultButton: true });
 
-
           const guildPic = (oneColor, twoColor) => {
+
+            const saveMyScore = (my1, my2, myG) => {
+              saveUser({
+                userName: this.state.userInfo,
+                color1: my1.toString(),
+                color2: my2.toString(),
+                guildMatch: myG,
+              })
+                .then(res => console.log("results posted"))
+                .catch(err => console.log(err));
+            };
             let firstGuild = oneColor;
             let secondGuild;
             if (!twoColor[1]) {
@@ -405,65 +414,90 @@ class Question extends Component {
             if ((firstGuild == "Red" & secondGuild == "Green") || (firstGuild == "Green" & secondGuild == "Red")) {
               console.log("gruul");
               this.setState({ guild: "Gruul Clan" });
+              saveMyScore(firstGuild, secondGuild, "Gruul Clan");
+
             }
             // 2 boros
             else if ((firstGuild == "Red" && secondGuild == "White") || (firstGuild == "White" && secondGuild == "Red")) {
               console.log("boros");
               this.setState({ guild: "Boros Legion" });
+              saveMyScore(firstGuild, secondGuild, "Boros Legion");
+
             }
             // 3 izzet
             else if ((firstGuild == "Red" && secondGuild == "Blue") || (firstGuild == "Blue" && secondGuild == "Red")) {
               console.log("izzet");
               this.setState({ guild: "Izzet League" });
+              saveMyScore(firstGuild, secondGuild, "Izzet League");
+
             }
             // 4 rakdos
             else if ((firstGuild == "Red" && secondGuild == "Black") || (firstGuild == "Black" && secondGuild == "Red")) {
               console.log("rakdos");
               this.setState({ guild: "Rakdos Cult" });
+              saveMyScore(firstGuild, secondGuild, "Rakdos Cult");
+
             }
             // 5 Azorius
             else if ((firstGuild == "Blue" && secondGuild == "White") || (firstGuild == "White" && secondGuild == "Blue")) {
               console.log("azor");
               this.setState({ guild: "Azorius Senate" });
+              saveMyScore(firstGuild, secondGuild, "Azorius Senate");
+
             }
             // 6 orzhov
             else if ((firstGuild == "Black" && secondGuild == "White") || (firstGuild == "White" && secondGuild == "Black")) {
               console.log("orzhov");
               this.setState({ guild: "Orzhov Syndicate" });
+              saveMyScore(firstGuild, secondGuild, "Orzhov Syndicate");
+
             }
             // 7 selesnaya
             else if ((firstGuild == "Green" && secondGuild == "White") || (firstGuild == "White" && secondGuild == "Green")) {
               console.log("seles");
               this.setState({ guild: "Selesnaya Conclave" });
+              saveMyScore(firstGuild, secondGuild, "Selesnaya Conclave");
+
             }
             // 8 simic
             else if ((firstGuild == "Blue" && secondGuild == "Green") || (firstGuild == "Green" && secondGuild == "Blue")) {
               console.log("simic");
               this.setState({ guild: "Simic Combine" });
+              saveMyScore(firstGuild, secondGuild, "Simic Combine");
+
             }
             // 9 golgari
             else if ((firstGuild == "Black" && secondGuild == "Green") || (firstGuild == "Green" && secondGuild == "Black")) {
               console.log("golgi");
               this.setState({ guild: "Golgari Swarm" });
+              saveMyScore(firstGuild, secondGuild, "Golgari Swarm");
             }
             // 10 dimir
             else {
               // ((firstGuild = "Black" && secondGuild = "Blue") || (firstGuild = "Blue" && secondGuild = "Black")) {
               console.log("dimir");
               this.setState({ guild: "House Dimir" });
+              saveMyScore(firstGuild, secondGuild, "House Dimir");
+
 
             }
+
+
+
+
 
           };
 
           guildPic(firstFinal, secondFinal);
+
           return (firstFinal, secondFinal);
+
         }
       }
 
       getColorResults();
-
-
+      // saveMyScore();
+      console.log(this.state.guild);
     } else {
       this.setState({ current: this.state.current + 1 })
     }
@@ -579,7 +613,7 @@ function GuildArea(props) {
         <Column xs={12} md={6} lg={6}>
           <Card title={"Your Guild is..."}>
             <h3>{props.Guild}</h3>
-            <GetDamnIcons ofThis={props.guild} />
+            <GetDamnIcons ofThis={props.Guild} />
           </Card>
         </Column>
       </Row>
@@ -588,28 +622,28 @@ function GuildArea(props) {
 }
 
 function GetDamnIcons(ofThis) {
-
-  if (ofThis === "Rakdos Cult") {
+  console.log(ofThis);
+  if (ofThis == "Rakdos Cult") {
     return (<i className="ss ss-rakdos"></i>)
-  } else if (ofThis === "Boros Legion") {
+  } else if (ofThis == "Boros Legion") {
     return (<i className="ss ss-boros"></i>)
-  } else if (ofThis === "Simic Combine") {
+  } else if (ofThis == "Simic Combine") {
     return (<i className="ss ss-simic"></i>)
-  } else if (ofThis === "Orzhov Syndicate") {
+  } else if (ofThis == "Orzhov Syndicate") {
     return (<i className="ss ss-orzhov"></i>)
-  } else if (ofThis === "Golgari Swarm") {
+  } else if (ofThis == "Golgari Swarm") {
     return (<i className="ss ss-golgari"></i>)
-  } else if (ofThis === "Izzet League") {
+  } else if (ofThis == "Izzet League") {
     return (<i className="ss ss-izzet"></i>)
   } else if (ofThis == "Selesnaya Conclave") {
     return (<i className="ss ss-selesnaya"></i>)
-  } else if (ofThis === "House Dimir") {
+  } else if (ofThis == "House Dimir") {
     return (<i className="ss ss-dimir"></i>)
-  } else if (ofThis === "Azorious Senate") {
+  } else if (ofThis == "Azorious Senate") {
     return (<i className="ss ss-azorius"></i>)
-  } else 
-  return (<i className="ss ss-gruul"></i>)
-  
+  } else if (ofThis == "Gruul Clan") {
+    return (<i className="ss ss-gruul"></i>)
+  } else return (<h2>oops</h2>)
 }
 
 

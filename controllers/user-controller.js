@@ -13,17 +13,37 @@ const saveUserResult = (req, res) => {
 const getUserResults = (req, res) => {
 
     User.find()
-    .then(dbUserData => res.json(dbUserData))
-    .catch(err => {
-        console.log(err);
-        res.json(err);
-      });
+        .then(dbUserData => res.json(dbUserData))
+        .catch(err => {
+            console.log(err);
+            res.json(err);
+        });
 
+};
+
+const getThisColor1 = (req, res) => {
+    User.find({ color1: req })
+        .then(dbUserData => res.json(dbUserData))
+        .catch(err => {
+            console.log(err);
+            res.json(err);
+        });
+};
+
+const getThisColor2 = (req, res) => {
+    User.find({ color2: req })
+        .then(dbUserData => res.json(dbUserData))
+        .catch(err => {
+            console.log(err);
+            res.json(err);
+        });
 };
 
 module.exports = {
 
     saveUserResult,
-    getUserResults
+    getUserResults,
+    getThisColor1,
+    getThisColor2,
 
 }

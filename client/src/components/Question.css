@@ -1,0 +1,30 @@
+/* THESE ARE THE ANSWER BUTTONS CSS */
+.quizAnswerButtons{
+font-size: 25px;
+margin:10px;
+}
+.eachBTN{
+    margin: 10px;
+    color: rgb(250, 250, 250);
+    float: left;
+    width: 40%;
+    background-color: rgba(149, 84, 31, 0.733);
+    border-radius: 15px;
+    text-shadow: 2px 2px #000000;
+    box-shadow: 3px 3px #797979;
+    font-family: sans-serif;
+}
+.eachBTN:hover{
+    background-color: #003af8;
+}
+.eachBTN:active{
+    transform: translateY(4px);
+}
+/* THESE ARE THE QUESTIONS */
+.questions{
+display: inline;
+text-align: center;
+color: black;
+font-family: Arial, Helvetica, sans-serif;
+background-color: #797979;
+}

@@ -30,6 +30,14 @@ export const getAllUsers = () => {
   return axios.get('/api/quiz');
 };
 
+export const getColor1 = (color) => {
+  return axios.get(`/${color}`);
+}
+
+export const getColor2 = (color) => {
+  return axios.get(`/${color}`);
+}
+
 
 // commander search
 export const mtgSearch = (query) => {
@@ -46,6 +54,8 @@ export default {
   searchGoogleBooks,
   mtgSearch,
   getAllUsers,
-  saveUser
+  saveUser,
+  getColor1,
+  getColor2,
 
 };

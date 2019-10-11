@@ -5,20 +5,28 @@ import Row from '../components/Boxes/Row';
 import Column from '../components/Boxes/Column';
 import Card from '../components/Boxes/Card';
 // import Result from '../components/Results';
-import { getAllUsers } from "../utils/API";
-import {Chart} from "react-google-charts";
+import { getAllUsers, getColor1, getColor2 } from "../utils/API";
+import { Chart } from "react-google-charts";
 
 class Results extends Component {
     constructor(props) {
         super(props);
         this.state = {
             scoreData: [],
+            BlueData:[],
+            colorAppearances: {
+                Blue: 0,
+                Green: 0,
+                Red: 0,
+                White: 0,
+                Black: 0
+            }
         }
     };
 
     componentDidMount() {
         this.getScores();
-        console.log(this.state.scoreData);
+        this.getBlue();
     };
 
     getScores = () => {
@@ -27,15 +35,29 @@ class Results extends Component {
                 this.setState({
                     scoreData: res.data
                 });
-                console.log(this.state.scoreData)
+                // console.log(this.state.scoreData)
             })
             .catch(err => console.log(err));
     }
 
+    getBlue = (Blue) => {
+        getColor1(Blue)
+        .then(res => {
+            this.setState({
+                BlueData: res.data
+            });
+            console.log(res)
+        })
+        .catch(err => console.log(err));
+
+    }
+
+
+
     render() {
 
         let scores = this.state.scoreData
-        console.log(scores)
+        // console.log(scores)
         let eachRow = scores.map(user => {
             return (
                 <tr key={user._id}>
@@ -83,14 +105,14 @@ class Results extends Component {
                                     loader={<div>Loading Chart</div>}
                                     data={[
                                         ['Guild', '2010 Population', '2000 Population'],
-                                        ['Boros' , 8175000, 8008000],
+                                        ['Boros', 8175000, 8008000],
                                         ['Golgari', 3792000, 3694000],
                                         ['Dimir', 2695000, 2896000],
                                         ['Selesnaya', 2099000, 1953000],
                                         ['Rakdos', 1526000, 1517000],
                                         ['Izzet', 1526000, 1517000],
                                         ['Azorius', 1526000, 1517000],
-                                        ['Gruul', 1526000, 1517000],                                        ['Rakdos', 1526000, 1517000],
+                                        ['Gruul', 1526000, 1517000], ['Rakdos', 1526000, 1517000],
                                         ['Orzhov', 1526000, 1517000],
                                         ['Simic', 1526000, 1517000],
                                     ]}

@@ -24,9 +24,9 @@
 
 .header{
 
-    background-image: url("jumbopaper.jpg");
-    background-size: cover;
-
+    /* background-image: url("jumbopaper.jpg");
+    background-size: cover; */
+background: none;
 }
 
 h1{

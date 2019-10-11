@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import "./Results.css"
-// import Container from "./Container";
 import Row from "./Boxes/Row";
 import Column from "./Boxes/Column";
 import Card from './Boxes/Card';
 import { saveUser } from "../utils/API";
-// import Quiz from "../pages/Quiz";
-// import { cpus } from "os";
-// import { userInfo } from "os";
+import "./Question.css"
+import { Chart } from "react-google-charts";
+
 
 class Question extends Component {
   constructor(props) {
@@ -269,6 +268,656 @@ class Question extends Component {
             content: 'MAYBE, ON A GOOD DAY!'
           }
         ]
+      },
+      // question #11
+      {
+        question: 'I can easily adjust to a change in decision.',
+        answers: [
+          {
+            type: 'Blue',
+            content: 'YEP! THAT IS ME!'
+          },
+          {
+            type: 'Black',
+            content: 'I HAVE NO IDEA!'
+          },
+          {
+            type: 'Red',
+            content: "NO WAY NOT ME!"
+          },
+          {
+            type: 'White',
+            content: 'MORE OFTEN THAN NOT!'
+          },
+          {
+            type: 'Green',
+            content: 'MAYBE, ON A GOOD DAY!'
+          }
+        ]
+      },
+      // question #12
+      {
+        question: 'I solve problems by working through facts until I understand the problem.',
+        answers: [
+          {
+            type: 'Blue',
+            content: 'YEP! THAT IS ME!'
+          },
+          {
+            type: 'Black',
+            content: 'I HAVE NO IDEA!'
+          },
+          {
+            type: 'Red',
+            content: "NO WAY NOT ME!"
+          },
+          {
+            type: 'White',
+            content: 'MORE OFTEN THAN NOT!'
+          },
+          {
+            type: 'Green',
+            content: 'MAYBE, ON A GOOD DAY!'
+          }
+        ]
+      },
+      // question #13
+      {
+        question: 'I rely on logic rather than intuition when making a decision.',
+        answers: [
+          {
+            type: 'Blue',
+            content: 'YEP! THAT IS ME!'
+          },
+          {
+            type: 'Black',
+            content: 'I HAVE NO IDEA!'
+          },
+          {
+            type: 'Red',
+            content: "NO WAY NOT ME!"
+          },
+          {
+            type: 'White',
+            content: 'MORE OFTEN THAN NOT!'
+          },
+          {
+            type: 'Green',
+            content: 'MAYBE, ON A GOOD DAY!'
+          }
+        ]
+      },
+      // question #14
+      {
+        question: 'I make decisions with my heart.',
+        answers: [
+          {
+            type: 'Blue',
+            content: 'YEP! THAT IS ME!'
+          },
+          {
+            type: 'Black',
+            content: 'I HAVE NO IDEA!'
+          },
+          {
+            type: 'Red',
+            content: "NO WAY NOT ME!"
+          },
+          {
+            type: 'White',
+            content: 'MORE OFTEN THAN NOT!'
+          },
+          {
+            type: 'Green',
+            content: 'MAYBE, ON A GOOD DAY!'
+          }
+        ]
+      },
+      // question #15
+      {
+        question: 'I learn best by seeing step by step instructions.',
+        answers: [
+          {
+            type: 'Blue',
+            content: 'YEP! THAT IS ME!'
+          },
+          {
+            type: 'Black',
+            content: 'I HAVE NO IDEA!'
+          },
+          {
+            type: 'Red',
+            content: "NO WAY NOT ME!"
+          },
+          {
+            type: 'White',
+            content: 'MORE OFTEN THAN NOT!'
+          },
+          {
+            type: 'Green',
+            content: 'MAYBE, ON A GOOD DAY!'
+          }
+        ]
+      },
+      // question #16
+      {
+        question: 'I sometimes move onto another task before completing my current one.',
+        answers: [
+          {
+            type: 'Blue',
+            content: 'YEP! THAT IS ME!'
+          },
+          {
+            type: 'Black',
+            content: 'I HAVE NO IDEA!'
+          },
+          {
+            type: 'Red',
+            content: "NO WAY NOT ME!"
+          },
+          {
+            type: 'White',
+            content: 'MORE OFTEN THAN NOT!'
+          },
+          {
+            type: 'Green',
+            content: 'MAYBE, ON A GOOD DAY!'
+          }
+        ]
+      },
+      // question #17
+      {
+        question: 'I prefer a flexible and spontaneous way of life.',
+        answers: [
+          {
+            type: 'Blue',
+            content: 'YEP! THAT IS ME!'
+          },
+          {
+            type: 'Black',
+            content: 'I HAVE NO IDEA!'
+          },
+          {
+            type: 'Red',
+            content: "NO WAY NOT ME!"
+          },
+          {
+            type: 'White',
+            content: 'MORE OFTEN THAN NOT!'
+          },
+          {
+            type: 'Green',
+            content: 'MAYBE, ON A GOOD DAY!'
+          }
+        ]
+      },
+      // question #18
+      {
+        question: 'I like to keep my options open when making decisions.',
+        answers: [
+          {
+            type: 'Blue',
+            content: 'YEP! THAT IS ME!'
+          },
+          {
+            type: 'Black',
+            content: 'I HAVE NO IDEA!'
+          },
+          {
+            type: 'Red',
+            content: "NO WAY NOT ME!"
+          },
+          {
+            type: 'White',
+            content: 'MORE OFTEN THAN NOT!'
+          },
+          {
+            type: 'Green',
+            content: 'MAYBE, ON A GOOD DAY!'
+          }
+        ]
+      },
+      // question #19
+      {
+        question: 'I feel comfortable in crowds.',
+        answers: [
+          {
+            type: 'Blue',
+            content: 'YEP! THAT IS ME!'
+          },
+          {
+            type: 'Black',
+            content: 'I HAVE NO IDEA!'
+          },
+          {
+            type: 'Red',
+            content: "NO WAY NOT ME!"
+          },
+          {
+            type: 'White',
+            content: 'MORE OFTEN THAN NOT!'
+          },
+          {
+            type: 'Green',
+            content: 'MAYBE, ON A GOOD DAY!'
+          }
+        ]
+      },
+      // question #20
+      {
+        question: 'I like to share my feelings with others.',
+        answers: [
+          {
+            type: 'Blue',
+            content: 'YEP! THAT IS ME!'
+          },
+          {
+            type: 'Black',
+            content: 'I HAVE NO IDEA!'
+          },
+          {
+            type: 'Red',
+            content: "NO WAY NOT ME!"
+          },
+          {
+            type: 'White',
+            content: 'MORE OFTEN THAN NOT!'
+          },
+          {
+            type: 'Green',
+            content: 'MAYBE, ON A GOOD DAY!'
+          }
+        ]
+      },
+      // question #21
+      {
+        question: 'I prefer to work/do right away rather than spend time making a plan.',
+        answers: [
+          {
+            type: 'Blue',
+            content: 'YEP! THAT IS ME!'
+          },
+          {
+            type: 'Black',
+            content: 'I HAVE NO IDEA!'
+          },
+          {
+            type: 'Red',
+            content: "NO WAY NOT ME!"
+          },
+          {
+            type: 'White',
+            content: 'MORE OFTEN THAN NOT!'
+          },
+          {
+            type: 'Green',
+            content: 'MAYBE, ON A GOOD DAY!'
+          }
+        ]
+      },
+      // question #22
+      {
+        question: 'I know my priorities.',
+        answers: [
+          {
+            type: 'Blue',
+            content: 'YEP! THAT IS ME!'
+          },
+          {
+            type: 'Black',
+            content: 'I HAVE NO IDEA!'
+          },
+          {
+            type: 'Red',
+            content: "NO WAY NOT ME!"
+          },
+          {
+            type: 'White',
+            content: 'MORE OFTEN THAN NOT!'
+          },
+          {
+            type: 'Green',
+            content: 'MAYBE, ON A GOOD DAY!'
+          }
+        ]
+      },
+      // question #23
+      {
+        question: 'I tend to work alone.',
+        answers: [
+          {
+            type: 'Blue',
+            content: 'YEP! THAT IS ME!'
+          },
+          {
+            type: 'Black',
+            content: 'I HAVE NO IDEA!'
+          },
+          {
+            type: 'Red',
+            content: "NO WAY NOT ME!"
+          },
+          {
+            type: 'White',
+            content: 'MORE OFTEN THAN NOT!'
+          },
+          {
+            type: 'Green',
+            content: 'MAYBE, ON A GOOD DAY!'
+          }
+        ]
+      },
+      // question #24
+      {
+        question: "I don't like going to parties.",
+        answers: [
+          {
+            type: 'Blue',
+            content: 'YEP! THAT IS ME!'
+          },
+          {
+            type: 'Black',
+            content: 'I HAVE NO IDEA!'
+          },
+          {
+            type: 'Red',
+            content: "NO WAY NOT ME!"
+          },
+          {
+            type: 'White',
+            content: 'MORE OFTEN THAN NOT!'
+          },
+          {
+            type: 'Green',
+            content: 'MAYBE, ON A GOOD DAY!'
+          }
+        ]
+      },
+      // question #25
+      {
+        question: 'I am in tune with my own emotions and let them guide me in life.',
+        answers: [
+          {
+            type: 'Blue',
+            content: 'YEP! THAT IS ME!'
+          },
+          {
+            type: 'Black',
+            content: 'I HAVE NO IDEA!'
+          },
+          {
+            type: 'Red',
+            content: "NO WAY NOT ME!"
+          },
+          {
+            type: 'White',
+            content: 'MORE OFTEN THAN NOT!'
+          },
+          {
+            type: 'Green',
+            content: 'MAYBE, ON A GOOD DAY!'
+          }
+        ]
+      },
+      // question #26
+      {
+        question: 'I rely on my intution and experience more than facts.',
+        answers: [
+          {
+            type: 'Blue',
+            content: 'YEP! THAT IS ME!'
+          },
+          {
+            type: 'Black',
+            content: 'I HAVE NO IDEA!'
+          },
+          {
+            type: 'Red',
+            content: "NO WAY NOT ME!"
+          },
+          {
+            type: 'White',
+            content: 'MORE OFTEN THAN NOT!'
+          },
+          {
+            type: 'Green',
+            content: 'MAYBE, ON A GOOD DAY!'
+          }
+        ]
+      },
+      // question #27
+      {
+        question: 'I like to think things through.',
+        answers: [
+          {
+            type: 'Blue',
+            content: 'YEP! THAT IS ME!'
+          },
+          {
+            type: 'Black',
+            content: 'I HAVE NO IDEA!'
+          },
+          {
+            type: 'Red',
+            content: "NO WAY NOT ME!"
+          },
+          {
+            type: 'White',
+            content: 'MORE OFTEN THAN NOT!'
+          },
+          {
+            type: 'Green',
+            content: 'MAYBE, ON A GOOD DAY!'
+          }
+        ]
+      },
+      // question #28
+      {
+        question: 'I am a visual learner.',
+        answers: [
+          {
+            type: 'Blue',
+            content: 'YEP! THAT IS ME!'
+          },
+          {
+            type: 'Black',
+            content: 'I HAVE NO IDEA!'
+          },
+          {
+            type: 'Red',
+            content: "NO WAY NOT ME!"
+          },
+          {
+            type: 'White',
+            content: 'MORE OFTEN THAN NOT!'
+          },
+          {
+            type: 'Green',
+            content: 'MAYBE, ON A GOOD DAY!'
+          }
+        ]
+      },
+      // question #29
+      {
+        question: 'I think carefully before I make decisions.',
+        answers: [
+          {
+            type: 'Blue',
+            content: 'YEP! THAT IS ME!'
+          },
+          {
+            type: 'Black',
+            content: 'I HAVE NO IDEA!'
+          },
+          {
+            type: 'Red',
+            content: "NO WAY NOT ME!"
+          },
+          {
+            type: 'White',
+            content: 'MORE OFTEN THAN NOT!'
+          },
+          {
+            type: 'Green',
+            content: 'MAYBE, ON A GOOD DAY!'
+          }
+        ]
+      },
+      // question #30
+      {
+        question: 'I feel uneasy if my actions disrupt harmony in my social circle.',
+        answers: [
+          {
+            type: 'Blue',
+            content: 'YEP! THAT IS ME!'
+          },
+          {
+            type: 'Black',
+            content: 'I HAVE NO IDEA!'
+          },
+          {
+            type: 'Red',
+            content: "NO WAY NOT ME!"
+          },
+          {
+            type: 'White',
+            content: 'MORE OFTEN THAN NOT!'
+          },
+          {
+            type: 'Green',
+            content: 'MAYBE, ON A GOOD DAY!'
+          }
+        ]
+      },
+      // question #31
+      {
+        question: 'I put my personal opinions aside in pursuit of fairness and justice.',
+        answers: [
+          {
+            type: 'Blue',
+            content: 'YEP! THAT IS ME!'
+          },
+          {
+            type: 'Black',
+            content: 'I HAVE NO IDEA!'
+          },
+          {
+            type: 'Red',
+            content: "NO WAY NOT ME!"
+          },
+          {
+            type: 'White',
+            content: 'MORE OFTEN THAN NOT!'
+          },
+          {
+            type: 'Green',
+            content: 'MAYBE, ON A GOOD DAY!'
+          }
+        ]
+      },
+      // question #32
+      {
+        question: 'I tend to sit at the back or corner of the room.',
+        answers: [
+          {
+            type: 'Blue',
+            content: 'YEP! THAT IS ME!'
+          },
+          {
+            type: 'Black',
+            content: 'I HAVE NO IDEA!'
+          },
+          {
+            type: 'Red',
+            content: "NO WAY NOT ME!"
+          },
+          {
+            type: 'White',
+            content: 'MORE OFTEN THAN NOT!'
+          },
+          {
+            type: 'Green',
+            content: 'MAYBE, ON A GOOD DAY!'
+          }
+        ]
+      },
+      // question #33
+      {
+        question: 'I like being the centre of attention.',
+        answers: [
+          {
+            type: 'Blue',
+            content: 'YEP! THAT IS ME!'
+          },
+          {
+            type: 'Black',
+            content: 'I HAVE NO IDEA!'
+          },
+          {
+            type: 'Red',
+            content: "NO WAY NOT ME!"
+          },
+          {
+            type: 'White',
+            content: 'MORE OFTEN THAN NOT!'
+          },
+          {
+            type: 'Green',
+            content: 'MAYBE, ON A GOOD DAY!'
+          }
+        ]
+      },
+      // question #34
+      {
+        question: 'I solve problems by leaping between different ideas and possibilities.',
+        answers: [
+          {
+            type: 'Blue',
+            content: 'YEP! THAT IS ME!'
+          },
+          {
+            type: 'Black',
+            content: 'I HAVE NO IDEA!'
+          },
+          {
+            type: 'Red',
+            content: "NO WAY NOT ME!"
+          },
+          {
+            type: 'White',
+            content: 'MORE OFTEN THAN NOT!'
+          },
+          {
+            type: 'Green',
+            content: 'MAYBE, ON A GOOD DAY!'
+          }
+        ]
+      },
+      // question #35
+      {
+        question: 'I like to complete my work before playing.',
+        answers: [
+          {
+            type: 'Blue',
+            content: 'YEP! THAT IS ME!'
+          },
+          {
+            type: 'Black',
+            content: 'I HAVE NO IDEA!'
+          },
+          {
+            type: 'Red',
+            content: "NO WAY NOT ME!"
+          },
+          {
+            type: 'White',
+            content: 'MORE OFTEN THAN NOT!'
+          },
+          {
+            type: 'Green',
+            content: 'MAYBE, ON A GOOD DAY!'
+          }
+        ]
       }
     ];
 
@@ -313,7 +962,7 @@ class Question extends Component {
     }
 
     // if the counter runs out of questions, get results
-    if (this.state.current === 9) {
+    if (this.state.current === 34) {
 
       const getColorResults = () => {
 
@@ -545,13 +1194,15 @@ class Question extends Component {
 // Ques, Answer, AnswerList make up the Quiz Area
 function Ques(props) {
   return (
-    <h1>{props.dataSet.question}</h1>
+    <div className="questions">
+      <h2>{props.dataSet.question}</h2>
+    </div>
   )
 }
 function Answer(props) {
   return (
     <div>
-      <button onClick={() => props.handleClick(props.choice)}>{props.answer}</button>
+      <button className="eachBTN" onClick={() => props.handleClick(props.choice)}>{props.answer}</button>
     </div>
   )
 }
@@ -561,7 +1212,7 @@ function AnswerList(props) {
     answers.push(<Answer key={props.dataSet.answers[i].type.toString()} choice={props.dataSet.answers[i].type.toString()} handleClick={props.handleClick} answer={props.dataSet.answers[i].content} />)
   }
   return (
-    <div>
+    <div className="quizAnswerButtons"> 
       {answers}
     </div>
   )
@@ -577,14 +1228,16 @@ function QuizArea(props) {
 }
 // Score Area
 function ScoreArea(props, Colors) {
+
   return (
     <div>
-      <h3>Question: {props.Counter + 1}</h3>
+      <h3>Question {props.Counter + 1} of 35</h3>
       <h4>W: {props.White}</h4>
       <h4>U: {props.Blue}</h4>
       <h4>B: {props.Black}</h4>
       <h4>R: {props.Red}</h4>
       <h4>G: {props.Green}</h4>
+
     </div>
   )
 }

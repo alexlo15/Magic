@@ -1,4 +1,5 @@
 import React from 'react';
+import "./Card.css";
 
 const Card = ({ bg, title, image, children }) => {
   const checkColor = () => {
@@ -18,9 +19,9 @@ const Card = ({ bg, title, image, children }) => {
   const textColor = checkColor();
 
   return (
-    <div className={bg ? `card bg-${bg} mb-2` : 'card mb-2'}>
+    <div className={bg ? `card bg-${bg} mb-2` : 'card mb-2 '}>
       <div className={textColor}>
-        {title && <h5 className={'card-header text-center'}>{title}</h5>}
+        {title && <h5 className={'card-header text-center cardHead'}>{title}</h5>}
         {image && (
           <img src={image} alt={title} className={'card-img img-fluid'} />
         )}

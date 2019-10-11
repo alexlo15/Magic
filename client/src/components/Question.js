@@ -1,6 +1,11 @@
 import React, { Component } from "react";
-import Result from "./Results";
+import "./Results.css"
+// import Container from "./Container";
+import Row from "./Row";
+import Column from "./Column";
+import Card from '../components/Card';
 // import Quiz from "../pages/Quiz";
+// import { cpus } from "os";
 // import { userInfo } from "os";
 
 class Question extends Component {
@@ -269,9 +274,11 @@ class Question extends Component {
     this.state = {
       showQuiz: true, resultButton: false,
       current: 0, dataSet: dataSet,
-      // Blue: 0, White: 0, Red: 0, Black: 0, Green: 0,
       Blue: 0, White: 0, Red: 0, Black: 0, Green: 0,
-      resultColor1: "", resultcolor2: "", userInfo: this.props.user,
+      resultColor1: "", resultColor2: "",
+      userInfo: this.props.user,
+      guild: "", guildpic: "",
+
     }
     this.handleClick = this.handleClick.bind(this)
 
@@ -321,60 +328,95 @@ class Question extends Component {
         // starts doing math and finds top
         let colorValues = Object.values(colorResults);
         let colorKeys = Object.keys(colorResults);
+        // sets the colorValue for #1 highest
         let maxColorValue = Math.max.apply(null, colorValues);
+        // identifies the key for that matching highest value
         const firstColor = colorKeys.filter(key => colorResults[key] === maxColorValue)
+
+
         // console.log(firstColor);
+        // console.log(secondColor);
         // console.log(maxColorValue);
-        // console.log(colorValues);
+        console.log(colorValues);
         // console.log(colorKeys);
 
         // if the array of max color answers is 2 or more,
         // we will have to split it into two separate variables
-        if (firstColor.length > 1) {
+        if (firstColor > 1) {
 
           let firstFinal = firstColor[0];
           let secondFinal = firstColor[1];
-          console.log(firstFinal);
-          console.log(secondFinal);
+
           this.setState({ current: 0 });
           this.setState({ showQuiz: false });
           this.setState({ resultButton: true });
           this.setState({ resultColor1: firstFinal });
-          this.setState({ resultcolor2: secondFinal });
+          this.setState({ resultColor2: secondFinal });
+          console.log(this.state.resultColor1);
+          console.log(this.state.resultColor2);
           return (firstFinal, secondFinal);
 
-          // else the max is already 1, 
+          // else the max is already 1 color, 
           // we'll have to splice and get a second
         } else {
 
-
-          let array2 = colorValues.splice(colorValues.indexOf(maxColorValue), 2);
-          const max2 = Math.min.apply(null, array2);
-          const secondColor = colorKeys.filter(key => colorResults[key] === max2);
-          // sets the second color to 1 thing if multiple are passed (ie. tied)
-          if (secondColor === "White" || secondColor === "Red" ||
-            secondColor === "Green" || secondColor === "Blue" || secondColor === "Black") {
-            const color2Shortened = secondColor;
-            console.log(color2Shortened);
+          let firstFinal = firstColor;
+          let arrayFor2 = colorValues.sort((a, b) => (a > b) ? 1 : -1)
+          console.log(arrayFor2);
+          // array2 is going to be the highest number split from the array, 
+          let array2 = arrayFor2.splice(4, 1);
+          // so that when we do mathMax now the highest element will be #2 technically
+          let secondNum = Math.max.apply(null, arrayFor2);
+          console.log(secondNum);
+          const secondTry = colorKeys.filter(key => colorResults[key] === secondNum);
+          let secondFinal;
+          if (!secondTry[1]) {
+            const secondFinal = secondTry;
+            console.log(secondFinal);
+            this.setState({ resultColor1: firstFinal });
+            this.setState({ resultColor2: secondFinal });
+            
           } else {
-            const color2Shortened = secondColor[0];
-            console.log(color2Shortened);
+            const secondFinal = secondTry[0];
+            console.log(secondFinal);
+            this.setState({ resultColor1: firstFinal });
+            this.setState({ resultColor2: secondFinal });
           }
-          console.log(firstColor)
-          // console.log(secondColor);
+          console.log(firstFinal);
+          // let colorValues = Object.values(colorResults);
+          // let colorKeys = Object.keys(colorResults);
+          // let maxColorValue2 = Math.max.apply(null, array2);
+          // const firstColor = colorKeys.filter(key => colorResults[key] === maxColorValue)
+
+
+          // const max2 = Math.min.apply(null, array2);
+          // const secondFinal = colorKeys.filter(key => colorResults[key] === max2);
+          // let ourSecond;
+          // if (secondFinal > 1) {
+          //   let ourSecond = secondFinal[0];
+          //   this.setState({ resultColor2: ourSecond })
+          // }
+
+          // console.log(firstColor);
+          // console.log(ourSecond);
           // console.log(array2);
           // console.log(maxColorValue);
-          // this.setState({resultColor1: firstColor}, {resultcolor2: secondColor})
+          // this.setState({resultColor1: firstColor}, {resultColor2: secondFinal})
           this.setState({ current: 0 });
           this.setState({ showQuiz: false });
           this.setState({ resultButton: true });
-          this.setState({ resultColor1: firstColor });
-          this.setState({ resultcolor2: secondColor });
-          return (firstColor, secondColor);
+          this.setState({ resultColor1: firstFinal });
+          this.setState({ resultColor2: secondFinal });
+          console.log(this.state.resultColor1);
+          console.log(this.state.resultColor2);
+          return (firstFinal, secondFinal);
+
 
         }
 
       }
+
+
       getColorResults();
 
     } else {
@@ -391,19 +433,24 @@ class Question extends Component {
     let card;
     if (doingQuiz) {
       card = <>
-        <ScoreArea Counter={this.state.current}
-          Black={this.state.Black} Blue={this.state.Blue} Red={this.state.Red}
-          Green={this.state.Green} White={this.state.White} />
-        <QuizArea handleClick={this.handleClick} dataSet={this.state.dataSet[this.state.current]} />
+        <Row>
+          <Column xs={12} md={6} lg={6}>
+            <ScoreArea Counter={this.state.current}
+              Black={this.state.Black} Blue={this.state.Blue} Red={this.state.Red}
+              Green={this.state.Green} White={this.state.White} />
+          </Column>
+          <Column xs={12} md={6} lg={6}>
+            <Card>
+              <QuizArea handleClick={this.handleClick} dataSet={this.state.dataSet[this.state.current]} />
+            </Card>
+          </Column>
+        </Row>
       </>
     } else {
       card =
         <>
-          <Result title={"The results are in!"}
-            color1={this.state.resultColor1}
-            color2={this.state.resultcolor2}>
-            <h3>Congrats {this.state.userInfo}, you finished!</h3>
-          </Result>
+          <ResultsArea user={this.state.userInfo} Color1={this.state.resultColor1} Color2={this.state.resultColor2} />
+          <GuildArea Guild={this.state.guild} Guildpic={this.state.guildpic} />
         </>
     }
 
@@ -442,7 +489,6 @@ function AnswerList(props) {
 
 // Quiz Area
 function QuizArea(props) {
-
   return (
     <div>
       <Ques dataSet={props.dataSet} />
@@ -464,5 +510,38 @@ function ScoreArea(props, Colors) {
     </div>
   )
 }
+
+function ResultsArea(props) {
+  return (
+    <div>
+      <Row>
+        <Column xs={12} md={6} lg={6}>
+          <Card title={"Congrats! you finished!"}>
+            <p>Thanks for taking the time, {props.user}</p>
+            <p>Your first color is: {props.Color1}</p>
+            <p>Your second color is: {props.Color2}</p>
+          </Card>
+        </Column>
+      </Row>
+    </div>
+  )
+}
+
+function GuildArea(props) {
+
+  return (
+    <div>
+      <Row>
+        <Column xs={12} md={6} lg={6}>
+          <Card title={"Your Guild is..."}>
+            <h3>{props.Guild}</h3>
+            <p>{props.Guildpic}</p>
+          </Card>
+        </Column>
+      </Row>
+    </div>
+  )
+}
+
 
 export default Question;

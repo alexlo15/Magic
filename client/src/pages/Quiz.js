@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Jumbotron from '../components/Jumbotron';
 import Container from '../components/Container';
-import Row from '../components/Row';
-import Column from '../components/Column';
+// import Row from '../components/Row';
+// import Column from '../components/Column';
 import Card from '../components/Card';
 // import quizQuestions from "../utils/quizQuestions";
 import Question from "../components/Question";
@@ -88,9 +88,10 @@ class Quiz extends Component {
                 </form>
             </Card>
         } else {
-            card = <Question user={this.state.userName}>
-
-            </Question>
+            card = <Card>
+                <Question user={this.state.userName}>
+                </Question>
+            </Card>
         }
 
         // Return is here
@@ -103,12 +104,12 @@ class Quiz extends Component {
                     pageTitle={'Search For A Commander!'}
                 />
                 <Container>
-                    <Row>
-                        <Column xs={12} md={4}>
-                            {card}
-                        </Column>
+                    {/* <Row>
+                        <Column xs={12} md={12} lg={12}> */}
+                    {card}
+                    {/* </Column>
 
-                    </Row>
+                    </Row> */}
                 </Container >
             </>
         );

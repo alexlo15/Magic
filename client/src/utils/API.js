@@ -32,8 +32,8 @@ export const getAllUsers = () => {
 
 
 // commander search
-export const mtgSearch = () => {
-  return axios.get("https://api.scryfall.com/cards/random?q=is%3Acommander")
+export const mtgSearch = (query) => {
+  return axios.get("https://api.scryfall.com/cards/random?q=is%3Acommander+c:" + query)
 
 };
 

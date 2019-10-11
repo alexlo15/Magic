@@ -37,9 +37,6 @@ class Results extends Component {
         let scores = this.state.scoreData
         console.log(scores)
         let eachRow = scores.map(user => {
-
-
-
             return (
                 <tr key={user._id}>
                     <td>{user.userName}</td>
@@ -85,19 +82,24 @@ class Results extends Component {
                                     chartType="BarChart"
                                     loader={<div>Loading Chart</div>}
                                     data={[
-                                        ['City', '2010 Population', '2000 Population'],
-                                        ['New York City, NY', 8175000, 8008000],
-                                        ['Los Angeles, CA', 3792000, 3694000],
-                                        ['Chicago, IL', 2695000, 2896000],
-                                        ['Houston, TX', 2099000, 1953000],
-                                        ['Philadelphia, PA', 1526000, 1517000],
+                                        ['Guild', '2010 Population', '2000 Population'],
+                                        ['Boros' , 8175000, 8008000],
+                                        ['Golgari', 3792000, 3694000],
+                                        ['Dimir', 2695000, 2896000],
+                                        ['Selesnaya', 2099000, 1953000],
+                                        ['Rakdos', 1526000, 1517000],
+                                        ['Izzet', 1526000, 1517000],
+                                        ['Azorius', 1526000, 1517000],
+                                        ['Gruul', 1526000, 1517000],                                        ['Rakdos', 1526000, 1517000],
+                                        ['Orzhov', 1526000, 1517000],
+                                        ['Simic', 1526000, 1517000],
                                     ]}
                                     options={{
-                                        title: 'Population of Largest U.S. Cities',
-                                        chartArea: { width: '50%' },
+                                        title: 'Commonly represented Guilds',
+                                        chartArea: { width: '60%' },
                                         isStacked: true,
                                         hAxis: {
-                                            title: 'Total Population',
+                                            title: 'Appearances',
                                             minValue: 0,
                                         },
                                         vAxis: {

@@ -4,7 +4,7 @@ import Container from '../components/Boxes/Container';
 import Row from '../components/Boxes/Row';
 import Column from '../components/Boxes/Column';
 import Card from '../components/Boxes/Card';
-import { searchGoogleBooks, saveBook, getSavedBooks, mtgCardSearch, mtgSearch, getSavedCards, saveCard } from '../utils/API';
+import { mtgCardSearch, getSavedCards, saveCard } from '../utils/API';
 
 class Search extends Component {
   state = {
@@ -37,9 +37,7 @@ class Search extends Component {
         console.log(card)
         this.setState({ error: null });
 
-        //         const cardsPlz = card.map(card => {
-        // return 
-        //         });
+
 
         const cardListCleaned = card.map(card => {
           return {
@@ -61,13 +59,10 @@ class Search extends Component {
   };
 
   retrieveSavedCards = () => {
-    console.log(this.state.cardList);
-
     getSavedCards()
       .then(res => {
-        console.log(res);
-        // const savedCardIds = res.data.map(card => card.cardID);
-        // this.setState({ savedCardIds });
+        const savedCardIds = res.data.map(card => card.cardID);
+        this.setState({ savedCardIds });
         console.log(this.state.savedCardIds);
       })
       .catch(err => this.setState({ error: err }));
@@ -75,11 +70,13 @@ class Search extends Component {
   };
 
   handeCardSave = cardID => {
-    const card = this.state.cardList.find(card => card.id === cardID);
+    const card = this.state.cardList.find(card => card.cardID === cardID);
     saveCard(card)
       .then(() => {
+        console.log(card);
         const savedCardIds = [...this.state.savedCardIds, cardID];
-        this.setState({ savedCardIds });
+        this.setState({ savedCardIds: savedCardIds });
+        console.log(this.state.savedCardIds)
       })
       .catch(err => this.setState({ error: err }));
   };
@@ -128,7 +125,6 @@ class Search extends Component {
                           <Card
                             title={card.cardName}
                             image={card.cardPic ? card.cardPic : undefined}>
-                            {/* <p>{book.description}</p> */}
 
                             <button
                               disabled={

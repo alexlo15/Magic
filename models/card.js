@@ -7,21 +7,22 @@ const CardSchema = new Schema({
     cardID: {
         type: String
     },
-    image: {
+    cardPic: {
         type: String
     },
-    name: {
+    cardName: {
         type: String
     },
-    cmc: {
+    cardCMC: {
         type: String
     },
     colorIdentity: {
+        type: Array
+    },
+    cardURI: {
         type: String
     },
-    cardType: {
-        type: String
-    }
+
 });
 
 const Card = mongoose.model('card', CardSchema);

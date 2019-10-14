@@ -4,28 +4,31 @@ import Container from '../components/Boxes/Container';
 import Row from '../components/Boxes/Row';
 import Column from '../components/Boxes/Column';
 import Card from '../components/Boxes/Card';
-import { removeBook, getSavedBooks } from '../utils/API';
+import { getSavedCards, removeCard } from '../utils/API';
+// import { get } from 'mongoose';
 
 class Saved extends Component {
   state = {
-    bookList: []
+    bookList: [],
+    cardList: []
   };
 
   componentDidMount() {
-    this.handleGetSavedBooks();
+    this.handleGetCards();
   }
 
-  handleGetSavedBooks = () => {
-    getSavedBooks()
-      .then(({ data: bookList }) => {
-        this.setState({ bookList });
+  handleGetCards = () => {
+    getSavedCards()
+      .then(({ data: cardList }) => {
+        this.setState({ cardList });
+        console.log(this.state.cardList);
       })
       .catch(err => console.log(err));
   };
 
-  handleRemoveBook = bookId => {
-    removeBook(bookId)
-      .then(this.handleGetSavedBooks)
+  handleRemoveCard = cardID => {
+    removeCard(cardID)
+      .then(this.handleGetCards)
       .catch(err => console.log(err));
   };
 
@@ -40,32 +43,26 @@ class Saved extends Component {
         />
         <Container>
           <Row>
-            {!this.state.bookList.length ? (
-              <h2 className="text-center">No saved books, yet...</h2>
+            {!this.state.cardList.length ? (
+              <h2 className="text-center">No saved cards, yet...</h2>
             ) : (
-              this.state.bookList.map(book => {
-                return (
-                  <Column key={book._id} md={4}>
-                    <Card
-                      bg={'dark'}
-                      title={book.title}
-                      image={book.image ? book.image : undefined}>
-                      <small className="text-muted">
-                        {`By: ${
-                          book.authors.length ? book.authors.join(', ') : null
-                        }`}
-                      </small>
-                      <p>{book.description}</p>
-                      <button
-                        onClick={() => this.handleRemoveBook(book._id)}
-                        className="btn btn-danger btn-sm">
-                        Remove Book
+                this.state.cardList.map(card => {
+                  return (
+                    <Column key={card._id} md={2}>
+                      <Card
+                        bg={'dark'}
+                        title={card.cardName}
+                        image={card.cardPic ? card.cardPic : undefined}>
+                        <button
+                          onClick={() => this.handleRemoveCard(card.cardID)}
+                          className="btn btn-danger btn-sm">
+                          Remove Card
                       </button>
-                    </Card>
-                  </Column>
-                );
-              })
-            )}
+                      </Card>
+                    </Column>
+                  );
+                })
+              )}
           </Row>
         </Container>
       </>

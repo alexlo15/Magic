@@ -19,7 +19,7 @@ const saveCard = (req, res) => {
 
 const removeCard = (req, res) => {
     Card.remove({
-      _id: req.params.id
+      cardID: req.params.id
     })
       .then(dbBookData => res.json(dbBookData))
       .catch(err => {

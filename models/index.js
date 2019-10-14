@@ -1,9 +1,9 @@
 const Book = require('./book');
 const User = require("./users");
-const Guild = require('./guild');
+const Card = require('./card');
 
 module.exports = {
   Book,
   User,
-  Guild
+  Card,
 };

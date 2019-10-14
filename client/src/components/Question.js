@@ -204,15 +204,15 @@ class Question extends Component {
             content: 'I HAVE NO IDEA!'
           },
           {
-            type: 'Red',
+            type: 'White',
             content: "NO WAY NOT ME!"
           },
           {
-            type: 'White',
+            type: 'Green',
             content: 'MORE OFTEN THAN NOT!'
           },
           {
-            type: 'Green',
+            type: 'Red',
             content: 'MAYBE, ON A GOOD DAY!'
           }
         ]
@@ -248,23 +248,23 @@ class Question extends Component {
         question: 'I like to try new things.',
         answers: [
           {
-            type: 'Blue',
+            type: 'Red',
             content: 'YEP! THAT IS ME!'
           },
           {
-            type: 'Black',
+            type: 'White',
             content: 'I HAVE NO IDEA!'
           },
           {
-            type: 'Red',
+            type: 'Blue',
             content: "NO WAY NOT ME!"
           },
           {
-            type: 'White',
+            type: 'Green',
             content: 'MORE OFTEN THAN NOT!'
           },
           {
-            type: 'Green',
+            type: 'Black',
             content: 'MAYBE, ON A GOOD DAY!'
           }
         ]
@@ -274,11 +274,11 @@ class Question extends Component {
         question: 'I can easily adjust to a change in decision.',
         answers: [
           {
-            type: 'Blue',
+            type: 'White',
             content: 'YEP! THAT IS ME!'
           },
           {
-            type: 'Black',
+            type: 'Green',
             content: 'I HAVE NO IDEA!'
           },
           {
@@ -286,11 +286,11 @@ class Question extends Component {
             content: "NO WAY NOT ME!"
           },
           {
-            type: 'White',
+            type: 'Blue',
             content: 'MORE OFTEN THAN NOT!'
           },
           {
-            type: 'Green',
+            type: 'Black',
             content: 'MAYBE, ON A GOOD DAY!'
           }
         ]
@@ -304,11 +304,11 @@ class Question extends Component {
             content: 'YEP! THAT IS ME!'
           },
           {
-            type: 'Black',
+            type: 'Red',
             content: 'I HAVE NO IDEA!'
           },
           {
-            type: 'Red',
+            type: 'Green',
             content: "NO WAY NOT ME!"
           },
           {
@@ -316,7 +316,7 @@ class Question extends Component {
             content: 'MORE OFTEN THAN NOT!'
           },
           {
-            type: 'Green',
+            type: 'Black',
             content: 'MAYBE, ON A GOOD DAY!'
           }
         ]
@@ -352,19 +352,19 @@ class Question extends Component {
         question: 'I make decisions with my heart.',
         answers: [
           {
-            type: 'Blue',
+            type: 'White',
             content: 'YEP! THAT IS ME!'
           },
           {
-            type: 'Black',
+            type: 'Blue',
             content: 'I HAVE NO IDEA!'
           },
           {
-            type: 'Red',
+            type: 'Black',
             content: "NO WAY NOT ME!"
           },
           {
-            type: 'White',
+            type: 'Red',
             content: 'MORE OFTEN THAN NOT!'
           },
           {
@@ -378,15 +378,15 @@ class Question extends Component {
         question: 'I learn best by seeing step by step instructions.',
         answers: [
           {
-            type: 'Blue',
+            type: 'Green',
             content: 'YEP! THAT IS ME!'
           },
           {
-            type: 'Black',
+            type: 'Red',
             content: 'I HAVE NO IDEA!'
           },
           {
-            type: 'Red',
+            type: 'Blue',
             content: "NO WAY NOT ME!"
           },
           {
@@ -394,7 +394,7 @@ class Question extends Component {
             content: 'MORE OFTEN THAN NOT!'
           },
           {
-            type: 'Green',
+            type: 'Black',
             content: 'MAYBE, ON A GOOD DAY!'
           }
         ]
@@ -404,15 +404,15 @@ class Question extends Component {
         question: 'I sometimes move onto another task before completing my current one.',
         answers: [
           {
-            type: 'Blue',
+            type: 'Red',
             content: 'YEP! THAT IS ME!'
           },
           {
-            type: 'Black',
+            type: 'Blue',
             content: 'I HAVE NO IDEA!'
           },
           {
-            type: 'Red',
+            type: 'Green',
             content: "NO WAY NOT ME!"
           },
           {
@@ -420,7 +420,7 @@ class Question extends Component {
             content: 'MORE OFTEN THAN NOT!'
           },
           {
-            type: 'Green',
+            type: 'Black',
             content: 'MAYBE, ON A GOOD DAY!'
           }
         ]
@@ -430,23 +430,23 @@ class Question extends Component {
         question: 'I prefer a flexible and spontaneous way of life.',
         answers: [
           {
-            type: 'Blue',
+            type: 'Red',
             content: 'YEP! THAT IS ME!'
           },
           {
-            type: 'Black',
+            type: 'Green',
             content: 'I HAVE NO IDEA!'
           },
           {
-            type: 'Red',
+            type: 'White',
             content: "NO WAY NOT ME!"
           },
           {
-            type: 'White',
+            type: 'Black',
             content: 'MORE OFTEN THAN NOT!'
           },
           {
-            type: 'Green',
+            type: 'Blue',
             content: 'MAYBE, ON A GOOD DAY!'
           }
         ]
@@ -460,19 +460,19 @@ class Question extends Component {
             content: 'YEP! THAT IS ME!'
           },
           {
-            type: 'Black',
+            type: 'Green',
             content: 'I HAVE NO IDEA!'
           },
           {
-            type: 'Red',
+            type: 'White',
             content: "NO WAY NOT ME!"
           },
           {
-            type: 'White',
+            type: 'Red',
             content: 'MORE OFTEN THAN NOT!'
           },
           {
-            type: 'Green',
+            type: 'Black',
             content: 'MAYBE, ON A GOOD DAY!'
           }
         ]
@@ -482,23 +482,23 @@ class Question extends Component {
         question: 'I feel comfortable in crowds.',
         answers: [
           {
-            type: 'Blue',
+            type: 'Green',
             content: 'YEP! THAT IS ME!'
           },
           {
-            type: 'Black',
+            type: 'White',
             content: 'I HAVE NO IDEA!'
           },
           {
-            type: 'Red',
+            type: 'Blue',
             content: "NO WAY NOT ME!"
           },
           {
-            type: 'White',
+            type: 'Red',
             content: 'MORE OFTEN THAN NOT!'
           },
           {
-            type: 'Green',
+            type: 'Black',
             content: 'MAYBE, ON A GOOD DAY!'
           }
         ]
@@ -516,7 +516,7 @@ class Question extends Component {
             content: 'I HAVE NO IDEA!'
           },
           {
-            type: 'Red',
+            type: 'Green',
             content: "NO WAY NOT ME!"
           },
           {
@@ -524,7 +524,7 @@ class Question extends Component {
             content: 'MORE OFTEN THAN NOT!'
           },
           {
-            type: 'Green',
+            type: 'Red',
             content: 'MAYBE, ON A GOOD DAY!'
           }
         ]
@@ -534,7 +534,7 @@ class Question extends Component {
         question: 'I prefer to work/do right away rather than spend time making a plan.',
         answers: [
           {
-            type: 'Blue',
+            type: 'Green',
             content: 'YEP! THAT IS ME!'
           },
           {
@@ -542,15 +542,15 @@ class Question extends Component {
             content: 'I HAVE NO IDEA!'
           },
           {
-            type: 'Red',
+            type: 'Blue',
             content: "NO WAY NOT ME!"
           },
           {
-            type: 'White',
+            type: 'Red',
             content: 'MORE OFTEN THAN NOT!'
           },
           {
-            type: 'Green',
+            type: 'Black',
             content: 'MAYBE, ON A GOOD DAY!'
           }
         ]
@@ -560,23 +560,23 @@ class Question extends Component {
         question: 'I know my priorities.',
         answers: [
           {
-            type: 'Blue',
+            type: 'Red',
             content: 'YEP! THAT IS ME!'
           },
           {
-            type: 'Black',
+            type: 'White',
             content: 'I HAVE NO IDEA!'
           },
           {
-            type: 'Red',
+            type: 'Blue',
             content: "NO WAY NOT ME!"
           },
           {
-            type: 'White',
+            type: 'Green',
             content: 'MORE OFTEN THAN NOT!'
           },
           {
-            type: 'Green',
+            type: 'Black',
             content: 'MAYBE, ON A GOOD DAY!'
           }
         ]
@@ -590,19 +590,19 @@ class Question extends Component {
             content: 'YEP! THAT IS ME!'
           },
           {
-            type: 'Black',
+            type: 'Red',
             content: 'I HAVE NO IDEA!'
           },
           {
-            type: 'Red',
+            type: 'White',
             content: "NO WAY NOT ME!"
           },
           {
-            type: 'White',
+            type: 'Green',
             content: 'MORE OFTEN THAN NOT!'
           },
           {
-            type: 'Green',
+            type: 'Black',
             content: 'MAYBE, ON A GOOD DAY!'
           }
         ]
@@ -612,11 +612,11 @@ class Question extends Component {
         question: "I don't like going to parties.",
         answers: [
           {
-            type: 'Blue',
+            type: 'White',
             content: 'YEP! THAT IS ME!'
           },
           {
-            type: 'Black',
+            type: 'Green',
             content: 'I HAVE NO IDEA!'
           },
           {
@@ -624,11 +624,11 @@ class Question extends Component {
             content: "NO WAY NOT ME!"
           },
           {
-            type: 'White',
+            type: 'Blue',
             content: 'MORE OFTEN THAN NOT!'
           },
           {
-            type: 'Green',
+            type: 'Black',
             content: 'MAYBE, ON A GOOD DAY!'
           }
         ]
@@ -638,7 +638,7 @@ class Question extends Component {
         question: 'I am in tune with my own emotions and let them guide me in life.',
         answers: [
           {
-            type: 'Blue',
+            type: 'White',
             content: 'YEP! THAT IS ME!'
           },
           {
@@ -650,11 +650,11 @@ class Question extends Component {
             content: "NO WAY NOT ME!"
           },
           {
-            type: 'White',
+            type: 'Green',
             content: 'MORE OFTEN THAN NOT!'
           },
           {
-            type: 'Green',
+            type: 'Blue',
             content: 'MAYBE, ON A GOOD DAY!'
           }
         ]
@@ -668,19 +668,19 @@ class Question extends Component {
             content: 'YEP! THAT IS ME!'
           },
           {
-            type: 'Black',
+            type: 'Red',
             content: 'I HAVE NO IDEA!'
           },
           {
-            type: 'Red',
+            type: 'Green',
             content: "NO WAY NOT ME!"
           },
           {
-            type: 'White',
+            type: 'Black',
             content: 'MORE OFTEN THAN NOT!'
           },
           {
-            type: 'Green',
+            type: 'White',
             content: 'MAYBE, ON A GOOD DAY!'
           }
         ]
@@ -694,7 +694,7 @@ class Question extends Component {
             content: 'YEP! THAT IS ME!'
           },
           {
-            type: 'Black',
+            type: 'Green',
             content: 'I HAVE NO IDEA!'
           },
           {
@@ -706,7 +706,7 @@ class Question extends Component {
             content: 'MORE OFTEN THAN NOT!'
           },
           {
-            type: 'Green',
+            type: 'Black',
             content: 'MAYBE, ON A GOOD DAY!'
           }
         ]
@@ -716,7 +716,7 @@ class Question extends Component {
         question: 'I am a visual learner.',
         answers: [
           {
-            type: 'Blue',
+            type: 'Green',
             content: 'YEP! THAT IS ME!'
           },
           {
@@ -724,7 +724,7 @@ class Question extends Component {
             content: 'I HAVE NO IDEA!'
           },
           {
-            type: 'Red',
+            type: 'Blue',
             content: "NO WAY NOT ME!"
           },
           {
@@ -732,7 +732,7 @@ class Question extends Component {
             content: 'MORE OFTEN THAN NOT!'
           },
           {
-            type: 'Green',
+            type: 'Red',
             content: 'MAYBE, ON A GOOD DAY!'
           }
         ]
@@ -768,15 +768,15 @@ class Question extends Component {
         question: 'I feel uneasy if my actions disrupt harmony in my social circle.',
         answers: [
           {
-            type: 'Blue',
+            type: 'Green',
             content: 'YEP! THAT IS ME!'
           },
           {
-            type: 'Black',
+            type: 'Blue',
             content: 'I HAVE NO IDEA!'
           },
           {
-            type: 'Red',
+            type: 'Black',
             content: "NO WAY NOT ME!"
           },
           {
@@ -784,7 +784,7 @@ class Question extends Component {
             content: 'MORE OFTEN THAN NOT!'
           },
           {
-            type: 'Green',
+            type: 'Red',
             content: 'MAYBE, ON A GOOD DAY!'
           }
         ]
@@ -794,11 +794,11 @@ class Question extends Component {
         question: 'I put my personal opinions aside in pursuit of fairness and justice.',
         answers: [
           {
-            type: 'Blue',
+            type: 'White',
             content: 'YEP! THAT IS ME!'
           },
           {
-            type: 'Black',
+            type: 'Green',
             content: 'I HAVE NO IDEA!'
           },
           {
@@ -806,11 +806,11 @@ class Question extends Component {
             content: "NO WAY NOT ME!"
           },
           {
-            type: 'White',
+            type: 'Blue',
             content: 'MORE OFTEN THAN NOT!'
           },
           {
-            type: 'Green',
+            type: 'Black',
             content: 'MAYBE, ON A GOOD DAY!'
           }
         ]
@@ -820,23 +820,23 @@ class Question extends Component {
         question: 'I tend to sit at the back or corner of the room.',
         answers: [
           {
-            type: 'Blue',
+            type: 'Black',
             content: 'YEP! THAT IS ME!'
           },
           {
-            type: 'Black',
+            type: 'Red',
             content: 'I HAVE NO IDEA!'
           },
           {
-            type: 'Red',
+            type: 'Green',
             content: "NO WAY NOT ME!"
           },
           {
-            type: 'White',
+            type: 'Blue',
             content: 'MORE OFTEN THAN NOT!'
           },
           {
-            type: 'Green',
+            type: 'White',
             content: 'MAYBE, ON A GOOD DAY!'
           }
         ]
@@ -846,7 +846,7 @@ class Question extends Component {
         question: 'I like being the centre of attention.',
         answers: [
           {
-            type: 'Blue',
+            type: 'Green',
             content: 'YEP! THAT IS ME!'
           },
           {
@@ -854,15 +854,15 @@ class Question extends Component {
             content: 'I HAVE NO IDEA!'
           },
           {
-            type: 'Red',
+            type: 'White',
             content: "NO WAY NOT ME!"
           },
           {
-            type: 'White',
+            type: 'Blue',
             content: 'MORE OFTEN THAN NOT!'
           },
           {
-            type: 'Green',
+            type: 'Red',
             content: 'MAYBE, ON A GOOD DAY!'
           }
         ]
@@ -876,7 +876,7 @@ class Question extends Component {
             content: 'YEP! THAT IS ME!'
           },
           {
-            type: 'Black',
+            type: 'Green',
             content: 'I HAVE NO IDEA!'
           },
           {
@@ -884,11 +884,11 @@ class Question extends Component {
             content: "NO WAY NOT ME!"
           },
           {
-            type: 'White',
+            type: 'Black',
             content: 'MORE OFTEN THAN NOT!'
           },
           {
-            type: 'Green',
+            type: 'White',
             content: 'MAYBE, ON A GOOD DAY!'
           }
         ]
@@ -898,23 +898,23 @@ class Question extends Component {
         question: 'I like to complete my work before playing.',
         answers: [
           {
-            type: 'Blue',
+            type: 'White',
             content: 'YEP! THAT IS ME!'
           },
           {
-            type: 'Black',
+            type: 'Red',
             content: 'I HAVE NO IDEA!'
           },
           {
-            type: 'Red',
+            type: 'Green',
             content: "NO WAY NOT ME!"
           },
           {
-            type: 'White',
+            type: 'Blue',
             content: 'MORE OFTEN THAN NOT!'
           },
           {
-            type: 'Green',
+            type: 'Black',
             content: 'MAYBE, ON A GOOD DAY!'
           }
         ]

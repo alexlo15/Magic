@@ -4,13 +4,15 @@ import Container from '../components/Boxes/Container';
 import Row from '../components/Boxes/Row';
 import Column from '../components/Boxes/Column';
 import Card from '../components/Boxes/Card';
-import { searchGoogleBooks, saveBook, getSavedBooks } from '../utils/API';
+import { searchGoogleBooks, saveBook, getSavedBooks, mtgCardSearch, mtgSearch, getSavedCards } from '../utils/API';
 
 class Search extends Component {
   state = {
     searchTerm: '',
+    cardList: [],
     bookList: [],
     savedBookIds: [],
+    savedCardIds: [],
     error: null
   };
 
@@ -25,28 +27,50 @@ class Search extends Component {
     event.preventDefault();
 
     if (this.state.searchTerm === '') {
-      return this.setState({ error: 'Please put in a title.' });
+      return this.setState({ error: 'Please put in a keyword.' });
     }
 
-    searchGoogleBooks(this.state.searchTerm)
+    mtgCardSearch(this.state.searchTerm)
       .then(res => {
+        console.log(res.data);
         const { items } = res.data;
         this.setState({ error: null });
 
-        const bookListCleaned = items.map(book => {
+        const cardListCleaned = items.map(card => {
           return {
-            bookId: book.id,
-            title: book.volumeInfo.title,
-            authors: book.volumeInfo.authors,
-            description: book.volumeInfo.description,
-            image: book.volumeInfo.imageLinks
-              ? book.volumeInfo.imageLinks.thumbnail
-              : ''
+            cardPic: card.image_uris.normal,
+            cardID: card.id,
+            cardName: card.name,
+            cardURI: card.uri,
+            cardCMC: card.mana_cost,
+            colorIdentity: card.color_identity,
           };
         });
 
-        return this.setState({ bookList: bookListCleaned, searchTerm: '' });
+        return this.setState({ cardList: cardListCleaned, searchTerm: '' });
       })
+
+
+    // searchGoogleBooks(this.state.searchTerm)
+    //   .then(res => {
+    //     const { items } = res.data;
+    //     this.setState({ error: null });
+
+    //     const bookListCleaned = items.map(book => {
+    //       return {
+    //         bookId: book.id,
+    //         title: book.volumeInfo.title,
+    //         authors: book.volumeInfo.authors,
+    //         description: book.volumeInfo.description,
+    //         image: book.volumeInfo.imageLinks
+    //           ? book.volumeInfo.imageLinks.thumbnail
+    //           : ''
+    //       };
+    //     });
+
+    //     return this.setState({ bookList: bookListCleaned, searchTerm: '' });
+    //   })
+      //  //////////////////////////////////////
       .then(this.retrieveSavedBooks)
       .catch(err => this.setState({ error: err }));
   };
@@ -58,6 +82,16 @@ class Search extends Component {
         this.setState({ savedBookIds });
       })
       .catch(err => this.setState({ error: err }));
+  };
+
+  getSavedCards = () => {
+    getSavedCards()
+      .then(res => {
+        const savedCardIds = res.data.map(card => card.cardID);
+        this.setState({ savedCardIds });
+      })
+      .catch(err => this.setState({ error: err }));
+
   };
 
   handleBookSaveBook = bookId => {
@@ -105,41 +139,34 @@ class Search extends Component {
             </Column>
             <Column xs={12} md={8}>
               <Row>
-                {!this.state.bookList.length ? (
-                  <h2 className="text-center">Search for books to begin</h2>
+                {!this.state.cardList.length ? (
+                  <h2 className="text-center">Search for cards to begin</h2>
                 ) : (
-                  this.state.bookList.map(book => {
-                    return (
-                      <Column key={book.bookId} md={4}>
-                        <Card
-                          title={book.title}
-                          image={book.image ? book.image : undefined}>
-                          <small className="text-muted">
-                            {`By: ${
-                              book.authors.length
-                                ? book.authors.join(', ')
-                                : null
-                            }`}
-                          </small>
-                          <p>{book.description}</p>
+                    this.state.cardList.map(card => {
+                      return (
+                        <Column key={card.id} md={4}>
+                          <Card
+                            title={card.name}
+                            image={card.cardPic ? card.cardPic : undefined}>
+                            {/* <p>{book.description}</p> */}
 
-                          <button
-                            disabled={
-                              this.state.savedBookIds.includes(book.bookId)
-                                ? true
-                                : undefined
-                            }
-                            className={'btn btn-success btn-sm'}
-                            onClick={() =>
-                              this.handleBookSaveBook(book.bookId)
-                            }>
-                            Save Book
+                            <button
+                              disabled={
+                                this.state.savedCardIds.includes(card.cardID)
+                                  ? true
+                                  : undefined
+                              }
+                              className={'btn btn-success btn-sm'}
+                              onClick={() =>
+                                this.handleBookSaveBook(card.cardID)
+                              }>
+                              Save Book
                           </button>
-                        </Card>
-                      </Column>
-                    );
-                  })
-                )}
+                          </Card>
+                        </Column>
+                      );
+                    })
+                  )}
               </Row>
             </Column>
           </Row>

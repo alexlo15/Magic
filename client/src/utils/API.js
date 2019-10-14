@@ -9,6 +9,7 @@ export const getSavedBooks = () => {
   return axios.get('/api/books');
 };
 
+
 export const removeBook = bookId => {
   return axios.delete(`/api/books/${bookId}`);
 };
@@ -21,6 +22,15 @@ export const searchGoogleBooks = query => {
   });
 };
 
+
+// card routes
+export const getSavedCards = () => {
+  return axios.get('/api/cardlist');
+};
+// card search
+export const mtgCardSearch = (query) => {
+  return axios.get("https://api.scryfall.com/cards/search?order=cmc&q="+query)
+};
 // user routes 
 export const saveUser = theirResult => {
   return axios.post('/api/quiz', theirResult);
@@ -30,14 +40,6 @@ export const getAllUsers = () => {
   return axios.get('/api/quiz');
 };
 
-// export const getColor1 = (color) => {
-//   return axios.get(`/api/${color}`);
-// }
-
-// export const getColor2 = (color) => {
-//   return axios.get(`/api/${color}`);
-// }
-
 export const getGuilds = () => {
   return axios.get("/api/Guild");
 }
@@ -45,8 +47,9 @@ export const getGuilds = () => {
 // commander search
 export const mtgSearch = (query) => {
   return axios.get("https://api.scryfall.com/cards/random?q=is%3Acommander+c:" + query)
-
 };
+
+
 
 
 
@@ -56,10 +59,10 @@ export default {
   removeBook,
   searchGoogleBooks,
   mtgSearch,
+  mtgCardSearch,
   getAllUsers,
   saveUser,
-  // getColor1,
-  // getColor2,
   getGuilds,
+  getSavedCards,
 
 };

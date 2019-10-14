@@ -152,20 +152,20 @@ class Results extends Component {
                                     chartType="BarChart"
                                     loader={<div>Loading Chart</div>}
                                     data={[
-                                        ['Guild',"Count of","each Guild" ],
-                                        ['Boros', this.state.Boros, this.state.Boros],
-                                        ['Golgari', this.state.Golg, this.state.Golg],
-                                        ['Dimir', this.state.Dimir, this.state.Dimir],
-                                        ['Selesnaya', this.state.Seles, this.state.Seles],
-                                        ['Rakdos', this.state.Rakdos, this.state.Rakdos],
-                                        ['Izzet', this.state.Izzet, this.state.Izzet],
-                                        ['Azorius', this.state.Azor, this.state.Azor],
-                                        ['Gruul', this.state.Gruul, this.state.Gruul],
-                                        ['Orzhov', this.state.Orz, this.state.Orz],
-                                        ['Simic', this.state.Simic, this.state.Simic],
+                                        ['Guild',"Count"],
+                                        ['Boros', this.state.Boros],
+                                        ['Golgari', this.state.Golg],
+                                        ['Dimir', this.state.Dimir],
+                                        ['Selesnaya', this.state.Seles],
+                                        ['Rakdos', this.state.Rakdos],
+                                        ['Izzet', this.state.Izzet],
+                                        ['Azorius', this.state.Azor],
+                                        ['Gruul', this.state.Gruul],
+                                        ['Orzhov', this.state.Orz],
+                                        ['Simic', this.state.Simic],
                                     ]}
                                     options={{
-                                        title: 'Commonly represented Guilds',
+                                        title: '',
                                         chartArea: { width: '60%' },
 
                                         isStacked: false,

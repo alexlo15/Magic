@@ -40,11 +40,23 @@ class Commander extends Component {
                     cardURI: random.uri,
                     cardCMC: random.mana_cost,
                     colorIdentity: random.color_identity,
-                    cardPic: random.image_uris.small
+                    cardPic: random.image_uris.normal
                 });
 
             })
     };
+
+    handleFormSubmit = event => {
+        event.preventDefault();
+
+        if (this.state.userName === '') {
+            return this.setState({ error: 'Please enter your name.' });
+        }
+
+        this.startQuiz();
+
+    };
+
 
 
     render() {
@@ -58,8 +70,8 @@ class Commander extends Component {
                 />
                 <Container>
                     <Row>
-                        <Column xs={12} md={4}>
-                            <Card title={"Search for your General"}>
+                        <Column xs={12} md={3} lg={3}>
+                            <Card title={"Search for a random General, or if you took the quiz"}>
                                 <form onSubmit={this.handleEDHSearch}>
                                     <button type="submit" className="btn btn-block btn-dark mt-2">
                                         Search!
@@ -67,17 +79,20 @@ class Commander extends Component {
                                 </form>
                             </Card>
                         </Column>
-                        <Column xs={12} md={8}>
+                        <Column xs={12} md={5} lg={5}>
                             <Row>
                                 <Card title={this.state.cardName} image={this.state.cardPic} >
-                                    <p><strong>ID: </strong>{this.state.cardID}</p>
-                                    <p><strong>Colors: </strong>{this.state.colorIdentity}</p>
-                                    <p><strong>CMC: </strong>{this.state.cardCMC}</p>
-                                    <p><strong>Links: </strong>{this.state.cardURI}</p>
                                 </Card>
 
 
                             </Row>
+                        </Column>
+                        <Column xs={12} md={4} lg={4}>
+                            <Card>
+                                <p><strong>Colors: </strong>{this.state.colorIdentity}</p>
+                                <p><strong>CMC: </strong>{this.state.cardCMC}</p>
+                                <p><strong>Links: </strong>{this.state.cardURI}</p>
+                            </Card>
                         </Column>
                     </Row>
                 </Container>

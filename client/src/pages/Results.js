@@ -5,7 +5,7 @@ import Row from '../components/Boxes/Row';
 import Column from '../components/Boxes/Column';
 import Card from '../components/Boxes/Card';
 // import Result from '../components/Results';
-import { getAllUsers, getColor1, getColor2 } from "../utils/API";
+import { getAllUsers, getGuilds } from "../utils/API";
 import { Chart } from "react-google-charts";
 
 class Results extends Component {
@@ -13,7 +13,11 @@ class Results extends Component {
         super(props);
         this.state = {
             scoreData: [],
-            BlueData:[],
+            BlueData: [],
+            GuildData: [],
+            GuildCount: [],
+            Boros: 0, Dimir: 0, Gruul: 0, Orz: 0, Azor: 0,
+            Simic: 0, Rakdos: 0, Izzet: 0, Seles: 0, Golg: 0,
             colorAppearances: {
                 Blue: 0,
                 Green: 0,
@@ -26,9 +30,10 @@ class Results extends Component {
 
     componentDidMount() {
         this.getScores();
-        this.getBlue();
+
     };
 
+    // getscores calls gatherGuilds
     getScores = () => {
         getAllUsers()
             .then(res => {
@@ -36,21 +41,64 @@ class Results extends Component {
                     scoreData: res.data
                 });
                 // console.log(this.state.scoreData)
+                this.gatherGuilds();
+
             })
             .catch(err => console.log(err));
-    }
+    };
 
-    getBlue = (Blue) => {
-        getColor1(Blue)
-        .then(res => {
-            this.setState({
-                BlueData: res.data
-            });
-            console.log(res)
+    // gatherguilds calls getGUildNums
+    gatherGuilds = () => {
+        getGuilds()
+            .then(res => {
+                this.setState({
+                    GuildData: res.data
+                });
+                this.getGuildNums();
+                console.log(this.state.GuildData);
+            })
+            .catch(err => console.log(err));
+    };
+
+    getGuildNums = () => {
+        let guildsData = this.state.GuildData;
+
+        let guildList = guildsData.map(({ guildMatch }) => guildMatch);
+        let counts = {};
+
+        for (var i = 0; i < guildList.length; i++) {
+            let num = guildList[i];
+            counts[num] = counts[num] ? counts[num] + 1 : 1;
+        }
+
+        this.setState({
+            Dimir: counts["House Dimir"],
+            Boros: counts["Boros Legion"],
+            Gruul: counts["Gruul Clan"],
+            Orz: counts["Orzhov Syndicate"],
+            Rakdos: counts["Rakdos Cult"],
+            Azor: counts["Azorius Senate"],
+            Seles: counts["Selesnaya Conclave"],
+            Simic: counts["Simic Combine"],
+            Golg: counts["Golgari Swarm"],
+            Izzet: counts["Izzet League"],
         })
-        .catch(err => console.log(err));
-
+    
+        // console.log(guildsData);
+        // console.log(guildList);
+        // console.log(this.state.Dimir);
+        // console.log(this.state.Gruul);
+        // console.log(this.state.Boros);
+        // console.log(this.state.Orz);
+        // console.log(this.state.Golg);
+        // console.log(this.state.Izzet);
+        // console.log(this.state.Seles);
+        // console.log(this.state.Simic);
+        // console.log(this.state.Rakdos);
+        // console.log(this.state.Azor);
     }
+
+
 
 
 
@@ -104,22 +152,23 @@ class Results extends Component {
                                     chartType="BarChart"
                                     loader={<div>Loading Chart</div>}
                                     data={[
-                                        ['Guild', '2010 Population', '2000 Population'],
-                                        ['Boros', 8175000, 8008000],
-                                        ['Golgari', 3792000, 3694000],
-                                        ['Dimir', 2695000, 2896000],
-                                        ['Selesnaya', 2099000, 1953000],
-                                        ['Rakdos', 1526000, 1517000],
-                                        ['Izzet', 1526000, 1517000],
-                                        ['Azorius', 1526000, 1517000],
-                                        ['Gruul', 1526000, 1517000], ['Rakdos', 1526000, 1517000],
-                                        ['Orzhov', 1526000, 1517000],
-                                        ['Simic', 1526000, 1517000],
+                                        ['Guild',"Count of","each Guild" ],
+                                        ['Boros', this.state.Boros, this.state.Boros],
+                                        ['Golgari', this.state.Golg, this.state.Golg],
+                                        ['Dimir', this.state.Dimir, this.state.Dimir],
+                                        ['Selesnaya', this.state.Seles, this.state.Seles],
+                                        ['Rakdos', this.state.Rakdos, this.state.Rakdos],
+                                        ['Izzet', this.state.Izzet, this.state.Izzet],
+                                        ['Azorius', this.state.Azor, this.state.Azor],
+                                        ['Gruul', this.state.Gruul, this.state.Gruul],
+                                        ['Orzhov', this.state.Orz, this.state.Orz],
+                                        ['Simic', this.state.Simic, this.state.Simic],
                                     ]}
                                     options={{
                                         title: 'Commonly represented Guilds',
                                         chartArea: { width: '60%' },
-                                        isStacked: true,
+
+                                        isStacked: false,
                                         hAxis: {
                                             title: 'Appearances',
                                             minValue: 0,

@@ -30,14 +30,17 @@ export const getAllUsers = () => {
   return axios.get('/api/quiz');
 };
 
-export const getColor1 = (color) => {
-  return axios.get(`/${color}`);
-}
+// export const getColor1 = (color) => {
+//   return axios.get(`/api/${color}`);
+// }
 
-export const getColor2 = (color) => {
-  return axios.get(`/${color}`);
-}
+// export const getColor2 = (color) => {
+//   return axios.get(`/api/${color}`);
+// }
 
+export const getGuilds = () => {
+  return axios.get("/api/Guild");
+}
 
 // commander search
 export const mtgSearch = (query) => {
@@ -55,7 +58,8 @@ export default {
   mtgSearch,
   getAllUsers,
   saveUser,
-  getColor1,
-  getColor2,
+  // getColor1,
+  // getColor2,
+  getGuilds,
 
 };

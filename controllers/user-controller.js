@@ -39,11 +39,22 @@ const getThisColor2 = (req, res) => {
         });
 };
 
+
+const getGuilds1 = (req, res) => {
+    User.distinct("guildMatch")
+        .then(dbUserData => res.json(dbUserData))
+        .catch(err => {
+            console.log(err);
+            res.json(err);
+        });
+}
+
 module.exports = {
 
     saveUserResult,
     getUserResults,
     getThisColor1,
     getThisColor2,
+    getGuilds1,
 
 }

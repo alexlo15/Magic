@@ -4,7 +4,7 @@ import Container from '../components/Boxes/Container';
 import Row from '../components/Boxes/Row';
 import Column from '../components/Boxes/Column';
 import Card from '../components/Boxes/Card';
-import { searchGoogleBooks, saveBook, getSavedBooks, mtgCardSearch, mtgSearch, getSavedCards } from '../utils/API';
+import { searchGoogleBooks, saveBook, getSavedBooks, mtgCardSearch, mtgSearch, getSavedCards, saveCard } from '../utils/API';
 
 class Search extends Component {
   state = {
@@ -32,11 +32,16 @@ class Search extends Component {
 
     mtgCardSearch(this.state.searchTerm)
       .then(res => {
-        console.log(res.data);
-        const { items } = res.data;
+        // console.log(res.data.data);
+        const card = res.data.data;
+        console.log(card)
         this.setState({ error: null });
 
-        const cardListCleaned = items.map(card => {
+        //         const cardsPlz = card.map(card => {
+        // return 
+        //         });
+
+        const cardListCleaned = card.map(card => {
           return {
             cardPic: card.image_uris.normal,
             cardID: card.id,
@@ -45,61 +50,36 @@ class Search extends Component {
             cardCMC: card.mana_cost,
             colorIdentity: card.color_identity,
           };
+
         });
 
-        return this.setState({ cardList: cardListCleaned, searchTerm: '' });
+        console.log(cardListCleaned);
+        return (this.setState({ cardList: cardListCleaned, searchTerm: '' }));
       })
-
-
-    // searchGoogleBooks(this.state.searchTerm)
-    //   .then(res => {
-    //     const { items } = res.data;
-    //     this.setState({ error: null });
-
-    //     const bookListCleaned = items.map(book => {
-    //       return {
-    //         bookId: book.id,
-    //         title: book.volumeInfo.title,
-    //         authors: book.volumeInfo.authors,
-    //         description: book.volumeInfo.description,
-    //         image: book.volumeInfo.imageLinks
-    //           ? book.volumeInfo.imageLinks.thumbnail
-    //           : ''
-    //       };
-    //     });
-
-    //     return this.setState({ bookList: bookListCleaned, searchTerm: '' });
-    //   })
-      //  //////////////////////////////////////
-      .then(this.retrieveSavedBooks)
+      .then(this.retrieveSavedCards)
       .catch(err => this.setState({ error: err }));
   };
 
-  retrieveSavedBooks = () => {
-    getSavedBooks()
-      .then(res => {
-        const savedBookIds = res.data.map(book => book.bookId);
-        this.setState({ savedBookIds });
-      })
-      .catch(err => this.setState({ error: err }));
-  };
+  retrieveSavedCards = () => {
+    console.log(this.state.cardList);
 
-  getSavedCards = () => {
     getSavedCards()
       .then(res => {
-        const savedCardIds = res.data.map(card => card.cardID);
-        this.setState({ savedCardIds });
+        console.log(res);
+        // const savedCardIds = res.data.map(card => card.cardID);
+        // this.setState({ savedCardIds });
+        console.log(this.state.savedCardIds);
       })
       .catch(err => this.setState({ error: err }));
 
   };
 
-  handleBookSaveBook = bookId => {
-    const book = this.state.bookList.find(book => book.bookId === bookId);
-    saveBook(book)
+  handeCardSave = cardID => {
+    const card = this.state.cardList.find(card => card.id === cardID);
+    saveCard(card)
       .then(() => {
-        const savedBookIds = [...this.state.savedBookIds, bookId];
-        this.setState({ savedBookIds });
+        const savedCardIds = [...this.state.savedCardIds, cardID];
+        this.setState({ savedCardIds });
       })
       .catch(err => this.setState({ error: err }));
   };
@@ -116,12 +96,12 @@ class Search extends Component {
         <Container>
           <Row>
             <Column xs={12} md={4}>
-              <Card title={'Search for a book'}>
+              <Card title={'Search for cards'}>
                 <form onSubmit={this.handleFormSubmit}>
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Search for a book"
+                    placeholder="Enter a keyword"
                     onChange={this.handleInputChange}
                     value={this.state.searchTerm}
                     name="searchTerm"
@@ -132,7 +112,7 @@ class Search extends Component {
                     </div>
                   )}
                   <button type="submit" className="btn btn-block btn-dark mt-2">
-                    Search For Books
+                    Lets go
                   </button>
                 </form>
               </Card>
@@ -144,9 +124,9 @@ class Search extends Component {
                 ) : (
                     this.state.cardList.map(card => {
                       return (
-                        <Column key={card.id} md={4}>
+                        <Column key={card.cardID} md={4}>
                           <Card
-                            title={card.name}
+                            title={card.cardName}
                             image={card.cardPic ? card.cardPic : undefined}>
                             {/* <p>{book.description}</p> */}
 
@@ -158,9 +138,9 @@ class Search extends Component {
                               }
                               className={'btn btn-success btn-sm'}
                               onClick={() =>
-                                this.handleBookSaveBook(card.cardID)
+                                this.handeCardSave(card.cardID)
                               }>
-                              Save Book
+                              Add to deck
                           </button>
                           </Card>
                         </Column>

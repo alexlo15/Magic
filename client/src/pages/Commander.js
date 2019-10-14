@@ -91,7 +91,7 @@ class Commander extends Component {
                             <Card>
                                 <p><strong>Colors: </strong>{this.state.colorIdentity}</p>
                                 <p><strong>CMC: </strong>{this.state.cardCMC}</p>
-                                <p><strong>Links: </strong>{this.state.cardURI}</p>
+                                <p><strong>Links: </strong><a href={this.state.cardURI} target="_blank">Scryfall</a></p>
                             </Card>
                         </Column>
                     </Row>

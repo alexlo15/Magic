@@ -3,4 +3,9 @@ background-color: rgba(253, 25, 17, 0.431);
 }
 
 .btn-primary{
-align-content: center;}
+align-content: center;
+}
+
+.card-body{
+    background-color: #64646463;
+}

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Jumbotron from '../components/Boxes/Jumbotron';
+import Jumbotron from '../components/Boxes/Jumbotron/Jumbotron';
 import Container from '../components/Boxes/Container';
 import Row from '../components/Boxes/Row';
 import Column from '../components/Boxes/Column';
-import Card from '../components/Boxes/Card';
+import Card from '../components/Boxes/Card/Card';
 import { mtgCardSearch, getSavedCards, saveCard } from '../utils/API';
 
 class Search extends Component {
@@ -88,17 +88,17 @@ class Search extends Component {
           fluid
           bg={'dark'}
           color={'light'}
-          pageTitle={'Search For Books'}
+          pageTitle={'Search For Cards'}
         />
         <Container>
           <Row>
-            <Column xs={12} md={4}>
-              <Card title={'Search for cards'}>
+            <Column xs={12} md={12} lg={12}>
+              <Card>
                 <form onSubmit={this.handleFormSubmit}>
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Enter a keyword"
+                    placeholder="Enter a keyword to search"
                     onChange={this.handleInputChange}
                     value={this.state.searchTerm}
                     name="searchTerm"
@@ -114,14 +114,14 @@ class Search extends Component {
                 </form>
               </Card>
             </Column>
-            <Column xs={12} md={8}>
+            <Column xs={12} md={12} lg={12}>
               <Row>
                 {!this.state.cardList.length ? (
-                  <h2 className="text-center">Search for cards to begin</h2>
+                <div></div>
                 ) : (
                     this.state.cardList.map(card => {
                       return (
-                        <Column key={card.cardID} md={4}>
+                        <Column key={card.cardID} md={2} lg={2}>
                           <Card
                             title={card.cardName}
                             image={card.cardPic ? card.cardPic : undefined}>

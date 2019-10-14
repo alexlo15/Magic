@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Jumbotron from '../components/Boxes/Jumbotron';
+import Jumbotron from '../components/Boxes/Jumbotron/Jumbotron';
 import Container from '../components/Boxes/Container';
 import Row from '../components/Boxes/Row';
 import Column from '../components/Boxes/Column';
-import Card from '../components/Boxes/Card';
+import Card from '../components/Boxes/Card/Card';
 // import Result from '../components/Results';
 import { getAllUsers, getGuilds } from "../utils/API";
 import { Chart } from "react-google-charts";

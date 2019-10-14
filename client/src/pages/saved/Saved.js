@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import Jumbotron from '../components/Boxes/Jumbotron';
-import Container from '../components/Boxes/Container';
-import Row from '../components/Boxes/Row';
-import Column from '../components/Boxes/Column';
-import Card from '../components/Boxes/Card';
-import { getSavedCards, removeCard } from '../utils/API';
+import Jumbotron from '../../components/Boxes/Jumbotron/Jumbotron';
+import Container from '../../components/Boxes/Container';
+import Row from '../../components/Boxes/Row';
+import Column from '../../components/Boxes/Column';
+import Card from '../../components/Boxes/Card/Card';
+import { getSavedCards, removeCard } from '../../utils/API';
+import "./Saved.css";
 // import { get } from 'mongoose';
 
 class Saved extends Component {
@@ -57,7 +58,7 @@ class Saved extends Component {
                           onClick={() => this.handleRemoveCard(card.cardID)}
                           className="btn btn-danger btn-sm">
                           Remove Card
-                      </button>
+                          </button>
                       </Card>
                     </Column>
                   );

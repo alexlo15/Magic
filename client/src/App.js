@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Search from './pages/Search';
-import Saved from './pages/Saved';
+import Saved from './pages//saved/Saved';
 import Commander from './pages/Commander';
 import Quiz from './pages/Quiz';
 import Results from './pages/Results';

@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import "./Results.css"
-import Row from "./Boxes/Row";
-import Column from "./Boxes/Column";
-import Card from './Boxes/Card';
-import { saveUser } from "../utils/API";
-import "./Question.css"
+import Row from "../Row";
+import Column from "../Column";
+import Card from '../Card/Card';
+import { saveUser } from "../../../utils/API";
+import "./Question.css";
+import "../Results/Results.css";
 import { Chart } from "react-google-charts";
 
 

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import Jumbotron from '../components/Boxes/Jumbotron';
+import Jumbotron from '../components/Boxes/Jumbotron/Jumbotron';
 import Container from '../components/Boxes/Container';
 // import Row from '../components/Row';
 // import Column from '../components/Column';
-import Card from '../components/Boxes/Card';
+import Card from '../components/Boxes/Card/Card';
 // import quizQuestions from "../utils/quizQuestions";
-import Question from "../components/Question";
+import Question from "../components/Boxes/Question/Question";
 // import { mtgSearch } from "../utils/API"
 
 class Quiz extends Component {

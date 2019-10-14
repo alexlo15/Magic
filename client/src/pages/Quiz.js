@@ -6,6 +6,7 @@ import Container from '../components/Boxes/Container';
 import Card from '../components/Boxes/Card/Card';
 // import quizQuestions from "../utils/quizQuestions";
 import Question from "../components/Boxes/Question/Question";
+import { StickyContainer } from "react-sticky";
 // import { mtgSearch } from "../utils/API"
 
 class Quiz extends Component {
@@ -97,20 +98,22 @@ class Quiz extends Component {
         // Return is here
         return (
             <>
-                <Jumbotron
-                    fluid
-                    bg={'dark'}
-                    color={'light'}
-                    pageTitle={'Search For A Commander!'}
-                />
-                <Container>
-                    {/* <Row>
+                <StickyContainer>
+                    <Jumbotron
+                        fluid
+                        bg={'dark'}
+                        color={'light'}
+                        pageTitle={'Search For A Commander!'}
+                    />
+                    <Container>
+                        {/* <Row>
                         <Column xs={12} md={12} lg={12}> */}
-                    {card}
-                    {/* </Column>
+                        {card}
+                        {/* </Column>
 
                     </Row> */}
-                </Container >
+                    </Container >
+                </StickyContainer>
             </>
         );
 

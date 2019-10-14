@@ -7,6 +7,8 @@ import Card from '../components/Boxes/Card/Card';
 // import Result from '../components/Results';
 import { getAllUsers, getGuilds } from "../utils/API";
 import { Chart } from "react-google-charts";
+import { StickyContainer } from 'react-sticky';
+
 
 class Results extends Component {
     constructor(props) {
@@ -83,7 +85,7 @@ class Results extends Component {
             Golg: counts["Golgari Swarm"],
             Izzet: counts["Izzet League"],
         })
-    
+
         // console.log(guildsData);
         // console.log(guildList);
         // console.log(this.state.Dimir);
@@ -120,72 +122,72 @@ class Results extends Component {
 
         return (
             <>
-                <Jumbotron
-                    fluid
-                    bg={'dark'}
-                    color={'light'}
-                    pageTitle={'Viewing Saved Books'} />
-                <Container>
-                    <Row>
-                        <Column xs={12} md={6} lg={6}>
-                            <Card title={"All the Nerd Results"}>
-                                <table id='table'>
-                                    <tbody className="scoreTableBody">
+                <StickyContainer>
+                    <Jumbotron
+                        fluid
+                        bg={'dark'}
+                        color={'light'}
+                        pageTitle={'Viewing Saved Books'} />
+                    <Container>
+                        <Row>
+                            <Column xs={12} md={6} lg={6}>
+                                <Card title={"All the Nerd Results"}>
+                                    <table id='table'>
+                                        <tbody className="scoreTableBody">
 
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Color 1</th>
-                                            <th>Color 2</th>
-                                            <th>Guild</th>
-                                            <th>Date</th>
-                                        </tr>
-                                        {eachRow}
-                                    </tbody>
-                                </table>
-                            </Card>
-                        </Column>
-                        <Column xs={12} md={6} lg={6}>
-                            <Card title={"Guild Popularity Contest"}>
-                                <Chart
-                                    width={'500px'}
-                                    height={'300px'}
-                                    chartType="BarChart"
-                                    loader={<div>Loading Chart</div>}
-                                    data={[
-                                        ['Guild',"Count"],
-                                        ['Boros', this.state.Boros],
-                                        ['Golgari', this.state.Golg],
-                                        ['Dimir', this.state.Dimir],
-                                        ['Selesnaya', this.state.Seles],
-                                        ['Rakdos', this.state.Rakdos],
-                                        ['Izzet', this.state.Izzet],
-                                        ['Azorius', this.state.Azor],
-                                        ['Gruul', this.state.Gruul],
-                                        ['Orzhov', this.state.Orz],
-                                        ['Simic', this.state.Simic],
-                                    ]}
-                                    options={{
-                                        title: '',
-                                        chartArea: { width: '60%' },
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Color 1</th>
+                                                <th>Color 2</th>
+                                                <th>Guild</th>
+                                                <th>Date</th>
+                                            </tr>
+                                            {eachRow}
+                                        </tbody>
+                                    </table>
+                                </Card>
+                            </Column>
+                            <Column xs={12} md={6} lg={6}>
+                                <Card title={"Guild Popularity Contest"}>
+                                    <Chart
+                                        width={'500px'}
+                                        height={'300px'}
+                                        chartType="BarChart"
+                                        loader={<div>Loading Chart</div>}
+                                        data={[
+                                            ['Guild', "Count"],
+                                            ['Boros', this.state.Boros],
+                                            ['Golgari', this.state.Golg],
+                                            ['Dimir', this.state.Dimir],
+                                            ['Selesnaya', this.state.Seles],
+                                            ['Rakdos', this.state.Rakdos],
+                                            ['Izzet', this.state.Izzet],
+                                            ['Azorius', this.state.Azor],
+                                            ['Gruul', this.state.Gruul],
+                                            ['Orzhov', this.state.Orz],
+                                            ['Simic', this.state.Simic],
+                                        ]}
+                                        options={{
+                                            title: '',
+                                            chartArea: { width: '60%' },
 
-                                        isStacked: false,
-                                        hAxis: {
-                                            title: 'Appearances',
-                                            minValue: 0,
-                                        },
-                                        vAxis: {
-                                            title: 'Guild',
-                                        },
-                                    }}
-                                    // For tests
-                                    rootProps={{ 'data-testid': '3' }}
-                                />
-                            </Card>
-                        </Column>
-                    </Row>
-                </Container>
-
-
+                                            isStacked: false,
+                                            hAxis: {
+                                                title: 'Appearances',
+                                                minValue: 0,
+                                            },
+                                            vAxis: {
+                                                title: 'Guild',
+                                            },
+                                        }}
+                                        // For tests
+                                        rootProps={{ 'data-testid': '3' }}
+                                    />
+                                </Card>
+                            </Column>
+                        </Row>
+                    </Container>
+                </StickyContainer>
             </>
         )
 

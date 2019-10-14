@@ -1,9 +1,6 @@
 .cardHead{
-background-color: rgba(253, 25, 17, 0.671);
+background-color: rgba(253, 25, 17, 0.431);
 }
 
-.card-body{
-
-    background-color: rgba(199, 199, 199, 0.144);
-    
-}
+.btn-primary{
+align-content: center;}

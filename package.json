@@ -19,7 +19,8 @@
     "if-env": "^1.0.4",
     "mongoose": "^5.6.13",
     "mtgsdk": "^0.4.3",
-    "react-google-charts": "^3.0.15"
+    "react-google-charts": "^3.0.15",
+    "react-sticky": "^6.0.3"
   },
   "devDependencies": {
     "concurrently": "^4.1.2",

@@ -12,8 +12,8 @@ export const getGuilds = () => {
 }
 
 // commander search
-export const mtgSearch = (query) => {
-  return axios.get("https://api.scryfall.com/cards/random?q=is%3Acommander+c:" + query)
+export const mtgSearch = () => {
+  return axios.get("https://api.scryfall.com/cards/random?q=is%3Acommander")
 };
 
 

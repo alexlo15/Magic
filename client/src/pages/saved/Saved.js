@@ -5,6 +5,7 @@ import Row from '../../components/Boxes/Row';
 import Column from '../../components/Boxes/Column';
 import Card from '../../components/Boxes/Card/Card';
 import { getSavedCards, removeCard } from '../../utils/API';
+import { StickyContainer } from 'react-sticky';
 import "./Saved.css";
 // import { get } from 'mongoose';
 
@@ -36,36 +37,38 @@ class Saved extends Component {
   render() {
     return (
       <>
-        <Jumbotron
-          fluid
-          bg={'dark'}
-          color={'light'}
-          pageTitle={'Viewing Saved Books'}
-        />
-        <Container>
-          <Row>
-            {!this.state.cardList.length ? (
-              <h2 className="text-center">No saved cards, yet...</h2>
-            ) : (
-                this.state.cardList.map(card => {
-                  return (
-                    <Column key={card._id} md={2}>
-                      <Card
-                        bg={'dark'}
-                        title={card.cardName}
-                        image={card.cardPic ? card.cardPic : undefined}>
-                        <button
-                          onClick={() => this.handleRemoveCard(card.cardID)}
-                          className="btn btn-danger btn-sm">
-                          Remove Card
+        <StickyContainer>
+          <Jumbotron
+            fluid
+            bg={'dark'}
+            color={'light'}
+            pageTitle={'Viewing Saved Decks'}
+          />
+          <Container className="pageBod">
+            <Row>
+              {!this.state.cardList.length ? (
+                <h2 className="text-center">No saved cards, yet...</h2>
+              ) : (
+                  this.state.cardList.map(card => {
+                    return (
+                      <Column key={card._id} md={2}>
+                        <Card
+                          title={card.cardName}
+                          image={card.cardPic ? card.cardPic : undefined}
+                        >
+                          <button
+                            onClick={() => this.handleRemoveCard(card.cardID)}
+                            className="btn btn-primary btn-sm">
+                            Remove Card
                           </button>
-                      </Card>
-                    </Column>
-                  );
-                })
-              )}
-          </Row>
-        </Container>
+                        </Card>
+                      </Column>
+                    );
+                  })
+                )}
+            </Row>
+          </Container>
+        </StickyContainer>
       </>
     );
   }

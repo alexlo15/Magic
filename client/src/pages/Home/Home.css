@@ -1,0 +1,12 @@
+#logoPic{
+
+    height: 400px;
+    width: 400px;
+
+}
+
+#logoPic:hover{
+
+    background-color: antiquewhite;
+
+}

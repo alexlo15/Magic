@@ -48,6 +48,7 @@ class Search extends Component {
             cardURI: card.uri,
             cardCMC: card.mana_cost,
             colorIdentity: card.color_identity,
+            isCMDR: false,
           };
 
         });
@@ -123,7 +124,7 @@ class Search extends Component {
                   ) : (
                       this.state.cardList.map(card => {
                         return (
-                          <Column key={card.cardID} md={2} lg={2}>
+                          <Column key={card.cardID} xs={2} md={2} lg={2}>
                             <Card
                               title={card.cardName}
                               image={card.cardPic ? card.cardPic : undefined}>

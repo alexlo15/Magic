@@ -22,6 +22,9 @@ const CardSchema = new Schema({
     cardURI: {
         type: String
     },
+    isCMDR: {
+        type: Boolean,
+    }
 
 });
 

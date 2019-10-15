@@ -1,11 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Search from './pages/Search';
-import Saved from './pages//saved/Saved';
+import Saved from './pages/saved/Saved';
 import Commander from './pages/Commander';
 import Quiz from './pages/Quiz';
 import Home from './pages/Home/Home';
 import Results from './pages/Results';
+import Decks from './pages/Decks';
 import UhOh404 from './pages/UhOh404';
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
           <Route exact path="/saved" component={Saved} />
           <Route exact path="/commander" component={Commander} />
           <Route exact path="/quiz" component={Quiz} />
+          <Route exact path="/decks" component={Decks} />
           <Route component={UhOh404} />
         </Switch>
       </React.Fragment>

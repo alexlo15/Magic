@@ -60,6 +60,11 @@ const Jumbotron = props => {
                       Results
                     </NavLink>
                   </Column>
+                  <Column md={2}>
+                    <NavLink to="/decks" className="btn btn-lg">
+                      DeckLists
+                    </NavLink>
+                  </Column>
                 </Row>
               </Container>
             </div>

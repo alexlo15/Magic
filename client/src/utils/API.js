@@ -15,6 +15,9 @@ export const getGuilds = () => {
 export const mtgSearch = () => {
   return axios.get("https://api.scryfall.com/cards/random?q=is%3Acommander")
 };
+export const cmdrColor = (color) => {
+  return axios.get("https://api.scryfall.com/cards/search?order=edhrec&q=c%3A" + color)
+};
 // card search
 export const mtgCardSearch = (query) => {
   return axios.get("https://api.scryfall.com/cards/search?order=edhrec&q="+query)
@@ -55,6 +58,7 @@ export default {
   mtgSearch,
   mtgCardSearch,
   cardSearchByID,
+  cmdrColor,
 // users
   getAllUsers,
   saveUser,

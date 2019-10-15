@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import Row from "../Row";
-import Column from "../Column";
-import Card from '../Card/Card';
-import { saveUser } from "../../../utils/API";
+import Row from "../Boxes/Row";
+import Column from "../Boxes/Column";
+import Card from '../Boxes/Card/Card';
+import { saveUser, cmdrColor } from "../../utils/API";
 import "./Question.css";
-import "../Results/Results.css";
+// import "/Results/Results.css";
 import { Chart } from "react-google-charts";
 
 
@@ -451,474 +451,474 @@ class Question extends Component {
           }
         ]
       },
-      // question #18
-      {
-        question: 'I like to keep my options open when making decisions.',
-        answers: [
-          {
-            type: 'Blue',
-            content: 'YEP! THAT IS ME!'
-          },
-          {
-            type: 'Green',
-            content: 'I HAVE NO IDEA!'
-          },
-          {
-            type: 'White',
-            content: "NO WAY NOT ME!"
-          },
-          {
-            type: 'Red',
-            content: 'MORE OFTEN THAN NOT!'
-          },
-          {
-            type: 'Black',
-            content: 'MAYBE, ON A GOOD DAY!'
-          }
-        ]
-      },
-      // question #19
-      {
-        question: 'I feel comfortable in crowds.',
-        answers: [
-          {
-            type: 'Green',
-            content: 'YEP! THAT IS ME!'
-          },
-          {
-            type: 'White',
-            content: 'I HAVE NO IDEA!'
-          },
-          {
-            type: 'Blue',
-            content: "NO WAY NOT ME!"
-          },
-          {
-            type: 'Red',
-            content: 'MORE OFTEN THAN NOT!'
-          },
-          {
-            type: 'Black',
-            content: 'MAYBE, ON A GOOD DAY!'
-          }
-        ]
-      },
-      // question #20
-      {
-        question: 'I like to share my feelings with others.',
-        answers: [
-          {
-            type: 'Blue',
-            content: 'YEP! THAT IS ME!'
-          },
-          {
-            type: 'Black',
-            content: 'I HAVE NO IDEA!'
-          },
-          {
-            type: 'Green',
-            content: "NO WAY NOT ME!"
-          },
-          {
-            type: 'White',
-            content: 'MORE OFTEN THAN NOT!'
-          },
-          {
-            type: 'Red',
-            content: 'MAYBE, ON A GOOD DAY!'
-          }
-        ]
-      },
-      // question #21
-      {
-        question: 'I prefer to work/do right away rather than spend time making a plan.',
-        answers: [
-          {
-            type: 'Green',
-            content: 'YEP! THAT IS ME!'
-          },
-          {
-            type: 'Black',
-            content: 'I HAVE NO IDEA!'
-          },
-          {
-            type: 'Blue',
-            content: "NO WAY NOT ME!"
-          },
-          {
-            type: 'Red',
-            content: 'MORE OFTEN THAN NOT!'
-          },
-          {
-            type: 'Black',
-            content: 'MAYBE, ON A GOOD DAY!'
-          }
-        ]
-      },
-      // question #22
-      {
-        question: 'I know my priorities.',
-        answers: [
-          {
-            type: 'Red',
-            content: 'YEP! THAT IS ME!'
-          },
-          {
-            type: 'White',
-            content: 'I HAVE NO IDEA!'
-          },
-          {
-            type: 'Blue',
-            content: "NO WAY NOT ME!"
-          },
-          {
-            type: 'Green',
-            content: 'MORE OFTEN THAN NOT!'
-          },
-          {
-            type: 'Black',
-            content: 'MAYBE, ON A GOOD DAY!'
-          }
-        ]
-      },
-      // question #23
-      {
-        question: 'I tend to work alone.',
-        answers: [
-          {
-            type: 'Blue',
-            content: 'YEP! THAT IS ME!'
-          },
-          {
-            type: 'Red',
-            content: 'I HAVE NO IDEA!'
-          },
-          {
-            type: 'White',
-            content: "NO WAY NOT ME!"
-          },
-          {
-            type: 'Green',
-            content: 'MORE OFTEN THAN NOT!'
-          },
-          {
-            type: 'Black',
-            content: 'MAYBE, ON A GOOD DAY!'
-          }
-        ]
-      },
-      // question #24
-      {
-        question: "I don't like going to parties.",
-        answers: [
-          {
-            type: 'White',
-            content: 'YEP! THAT IS ME!'
-          },
-          {
-            type: 'Green',
-            content: 'I HAVE NO IDEA!'
-          },
-          {
-            type: 'Red',
-            content: "NO WAY NOT ME!"
-          },
-          {
-            type: 'Blue',
-            content: 'MORE OFTEN THAN NOT!'
-          },
-          {
-            type: 'Black',
-            content: 'MAYBE, ON A GOOD DAY!'
-          }
-        ]
-      },
-      // question #25
-      {
-        question: 'I am in tune with my own emotions and let them guide me in life.',
-        answers: [
-          {
-            type: 'White',
-            content: 'YEP! THAT IS ME!'
-          },
-          {
-            type: 'Black',
-            content: 'I HAVE NO IDEA!'
-          },
-          {
-            type: 'Red',
-            content: "NO WAY NOT ME!"
-          },
-          {
-            type: 'Green',
-            content: 'MORE OFTEN THAN NOT!'
-          },
-          {
-            type: 'Blue',
-            content: 'MAYBE, ON A GOOD DAY!'
-          }
-        ]
-      },
-      // question #26
-      {
-        question: 'I rely on my intution and experience more than facts.',
-        answers: [
-          {
-            type: 'Blue',
-            content: 'YEP! THAT IS ME!'
-          },
-          {
-            type: 'Red',
-            content: 'I HAVE NO IDEA!'
-          },
-          {
-            type: 'Green',
-            content: "NO WAY NOT ME!"
-          },
-          {
-            type: 'Black',
-            content: 'MORE OFTEN THAN NOT!'
-          },
-          {
-            type: 'White',
-            content: 'MAYBE, ON A GOOD DAY!'
-          }
-        ]
-      },
-      // question #27
-      {
-        question: 'I like to think things through.',
-        answers: [
-          {
-            type: 'Blue',
-            content: 'YEP! THAT IS ME!'
-          },
-          {
-            type: 'Green',
-            content: 'I HAVE NO IDEA!'
-          },
-          {
-            type: 'Red',
-            content: "NO WAY NOT ME!"
-          },
-          {
-            type: 'White',
-            content: 'MORE OFTEN THAN NOT!'
-          },
-          {
-            type: 'Black',
-            content: 'MAYBE, ON A GOOD DAY!'
-          }
-        ]
-      },
-      // question #28
-      {
-        question: 'I am a visual learner.',
-        answers: [
-          {
-            type: 'Green',
-            content: 'YEP! THAT IS ME!'
-          },
-          {
-            type: 'Black',
-            content: 'I HAVE NO IDEA!'
-          },
-          {
-            type: 'Blue',
-            content: "NO WAY NOT ME!"
-          },
-          {
-            type: 'White',
-            content: 'MORE OFTEN THAN NOT!'
-          },
-          {
-            type: 'Red',
-            content: 'MAYBE, ON A GOOD DAY!'
-          }
-        ]
-      },
-      // question #29
-      {
-        question: 'I think carefully before I make decisions.',
-        answers: [
-          {
-            type: 'Blue',
-            content: 'YEP! THAT IS ME!'
-          },
-          {
-            type: 'Black',
-            content: 'I HAVE NO IDEA!'
-          },
-          {
-            type: 'Red',
-            content: "NO WAY NOT ME!"
-          },
-          {
-            type: 'White',
-            content: 'MORE OFTEN THAN NOT!'
-          },
-          {
-            type: 'Green',
-            content: 'MAYBE, ON A GOOD DAY!'
-          }
-        ]
-      },
-      // question #30
-      {
-        question: 'I feel uneasy if my actions disrupt harmony in my social circle.',
-        answers: [
-          {
-            type: 'Green',
-            content: 'YEP! THAT IS ME!'
-          },
-          {
-            type: 'Blue',
-            content: 'I HAVE NO IDEA!'
-          },
-          {
-            type: 'Black',
-            content: "NO WAY NOT ME!"
-          },
-          {
-            type: 'White',
-            content: 'MORE OFTEN THAN NOT!'
-          },
-          {
-            type: 'Red',
-            content: 'MAYBE, ON A GOOD DAY!'
-          }
-        ]
-      },
-      // question #31
-      {
-        question: 'I put my personal opinions aside in pursuit of fairness and justice.',
-        answers: [
-          {
-            type: 'White',
-            content: 'YEP! THAT IS ME!'
-          },
-          {
-            type: 'Green',
-            content: 'I HAVE NO IDEA!'
-          },
-          {
-            type: 'Red',
-            content: "NO WAY NOT ME!"
-          },
-          {
-            type: 'Blue',
-            content: 'MORE OFTEN THAN NOT!'
-          },
-          {
-            type: 'Black',
-            content: 'MAYBE, ON A GOOD DAY!'
-          }
-        ]
-      },
-      // question #32
-      {
-        question: 'I tend to sit at the back or corner of the room.',
-        answers: [
-          {
-            type: 'Black',
-            content: 'YEP! THAT IS ME!'
-          },
-          {
-            type: 'Red',
-            content: 'I HAVE NO IDEA!'
-          },
-          {
-            type: 'Green',
-            content: "NO WAY NOT ME!"
-          },
-          {
-            type: 'Blue',
-            content: 'MORE OFTEN THAN NOT!'
-          },
-          {
-            type: 'White',
-            content: 'MAYBE, ON A GOOD DAY!'
-          }
-        ]
-      },
-      // question #33
-      {
-        question: 'I like being the centre of attention.',
-        answers: [
-          {
-            type: 'Green',
-            content: 'YEP! THAT IS ME!'
-          },
-          {
-            type: 'Black',
-            content: 'I HAVE NO IDEA!'
-          },
-          {
-            type: 'White',
-            content: "NO WAY NOT ME!"
-          },
-          {
-            type: 'Blue',
-            content: 'MORE OFTEN THAN NOT!'
-          },
-          {
-            type: 'Red',
-            content: 'MAYBE, ON A GOOD DAY!'
-          }
-        ]
-      },
-      // question #34
-      {
-        question: 'I solve problems by leaping between different ideas and possibilities.',
-        answers: [
-          {
-            type: 'Blue',
-            content: 'YEP! THAT IS ME!'
-          },
-          {
-            type: 'Green',
-            content: 'I HAVE NO IDEA!'
-          },
-          {
-            type: 'Red',
-            content: "NO WAY NOT ME!"
-          },
-          {
-            type: 'Black',
-            content: 'MORE OFTEN THAN NOT!'
-          },
-          {
-            type: 'White',
-            content: 'MAYBE, ON A GOOD DAY!'
-          }
-        ]
-      },
-      // question #35
-      {
-        question: 'I like to complete my work before playing.',
-        answers: [
-          {
-            type: 'White',
-            content: 'YEP! THAT IS ME!'
-          },
-          {
-            type: 'Red',
-            content: 'I HAVE NO IDEA!'
-          },
-          {
-            type: 'Green',
-            content: "NO WAY NOT ME!"
-          },
-          {
-            type: 'Blue',
-            content: 'MORE OFTEN THAN NOT!'
-          },
-          {
-            type: 'Black',
-            content: 'MAYBE, ON A GOOD DAY!'
-          }
-        ]
-      }
+      // // question #18
+      // {
+      //   question: 'I like to keep my options open when making decisions.',
+      //   answers: [
+      //     {
+      //       type: 'Blue',
+      //       content: 'YEP! THAT IS ME!'
+      //     },
+      //     {
+      //       type: 'Green',
+      //       content: 'I HAVE NO IDEA!'
+      //     },
+      //     {
+      //       type: 'White',
+      //       content: "NO WAY NOT ME!"
+      //     },
+      //     {
+      //       type: 'Red',
+      //       content: 'MORE OFTEN THAN NOT!'
+      //     },
+      //     {
+      //       type: 'Black',
+      //       content: 'MAYBE, ON A GOOD DAY!'
+      //     }
+      //   ]
+      // },
+      // // question #19
+      // {
+      //   question: 'I feel comfortable in crowds.',
+      //   answers: [
+      //     {
+      //       type: 'Green',
+      //       content: 'YEP! THAT IS ME!'
+      //     },
+      //     {
+      //       type: 'White',
+      //       content: 'I HAVE NO IDEA!'
+      //     },
+      //     {
+      //       type: 'Blue',
+      //       content: "NO WAY NOT ME!"
+      //     },
+      //     {
+      //       type: 'Red',
+      //       content: 'MORE OFTEN THAN NOT!'
+      //     },
+      //     {
+      //       type: 'Black',
+      //       content: 'MAYBE, ON A GOOD DAY!'
+      //     }
+      //   ]
+      // },
+      // // question #20
+      // {
+      //   question: 'I like to share my feelings with others.',
+      //   answers: [
+      //     {
+      //       type: 'Blue',
+      //       content: 'YEP! THAT IS ME!'
+      //     },
+      //     {
+      //       type: 'Black',
+      //       content: 'I HAVE NO IDEA!'
+      //     },
+      //     {
+      //       type: 'Green',
+      //       content: "NO WAY NOT ME!"
+      //     },
+      //     {
+      //       type: 'White',
+      //       content: 'MORE OFTEN THAN NOT!'
+      //     },
+      //     {
+      //       type: 'Red',
+      //       content: 'MAYBE, ON A GOOD DAY!'
+      //     }
+      //   ]
+      // },
+      // // question #21
+      // {
+      //   question: 'I prefer to work/do right away rather than spend time making a plan.',
+      //   answers: [
+      //     {
+      //       type: 'Green',
+      //       content: 'YEP! THAT IS ME!'
+      //     },
+      //     {
+      //       type: 'Black',
+      //       content: 'I HAVE NO IDEA!'
+      //     },
+      //     {
+      //       type: 'Blue',
+      //       content: "NO WAY NOT ME!"
+      //     },
+      //     {
+      //       type: 'Red',
+      //       content: 'MORE OFTEN THAN NOT!'
+      //     },
+      //     {
+      //       type: 'Black',
+      //       content: 'MAYBE, ON A GOOD DAY!'
+      //     }
+      //   ]
+      // },
+      // // question #22
+      // {
+      //   question: 'I know my priorities.',
+      //   answers: [
+      //     {
+      //       type: 'Red',
+      //       content: 'YEP! THAT IS ME!'
+      //     },
+      //     {
+      //       type: 'White',
+      //       content: 'I HAVE NO IDEA!'
+      //     },
+      //     {
+      //       type: 'Blue',
+      //       content: "NO WAY NOT ME!"
+      //     },
+      //     {
+      //       type: 'Green',
+      //       content: 'MORE OFTEN THAN NOT!'
+      //     },
+      //     {
+      //       type: 'Black',
+      //       content: 'MAYBE, ON A GOOD DAY!'
+      //     }
+      //   ]
+      // },
+      // // question #23
+      // {
+      //   question: 'I tend to work alone.',
+      //   answers: [
+      //     {
+      //       type: 'Blue',
+      //       content: 'YEP! THAT IS ME!'
+      //     },
+      //     {
+      //       type: 'Red',
+      //       content: 'I HAVE NO IDEA!'
+      //     },
+      //     {
+      //       type: 'White',
+      //       content: "NO WAY NOT ME!"
+      //     },
+      //     {
+      //       type: 'Green',
+      //       content: 'MORE OFTEN THAN NOT!'
+      //     },
+      //     {
+      //       type: 'Black',
+      //       content: 'MAYBE, ON A GOOD DAY!'
+      //     }
+      //   ]
+      // },
+      // // question #24
+      // {
+      //   question: "I don't like going to parties.",
+      //   answers: [
+      //     {
+      //       type: 'White',
+      //       content: 'YEP! THAT IS ME!'
+      //     },
+      //     {
+      //       type: 'Green',
+      //       content: 'I HAVE NO IDEA!'
+      //     },
+      //     {
+      //       type: 'Red',
+      //       content: "NO WAY NOT ME!"
+      //     },
+      //     {
+      //       type: 'Blue',
+      //       content: 'MORE OFTEN THAN NOT!'
+      //     },
+      //     {
+      //       type: 'Black',
+      //       content: 'MAYBE, ON A GOOD DAY!'
+      //     }
+      //   ]
+      // },
+      // // question #25
+      // {
+      //   question: 'I am in tune with my own emotions and let them guide me in life.',
+      //   answers: [
+      //     {
+      //       type: 'White',
+      //       content: 'YEP! THAT IS ME!'
+      //     },
+      //     {
+      //       type: 'Black',
+      //       content: 'I HAVE NO IDEA!'
+      //     },
+      //     {
+      //       type: 'Red',
+      //       content: "NO WAY NOT ME!"
+      //     },
+      //     {
+      //       type: 'Green',
+      //       content: 'MORE OFTEN THAN NOT!'
+      //     },
+      //     {
+      //       type: 'Blue',
+      //       content: 'MAYBE, ON A GOOD DAY!'
+      //     }
+      //   ]
+      // },
+      // // question #26
+      // {
+      //   question: 'I rely on my intution and experience more than facts.',
+      //   answers: [
+      //     {
+      //       type: 'Blue',
+      //       content: 'YEP! THAT IS ME!'
+      //     },
+      //     {
+      //       type: 'Red',
+      //       content: 'I HAVE NO IDEA!'
+      //     },
+      //     {
+      //       type: 'Green',
+      //       content: "NO WAY NOT ME!"
+      //     },
+      //     {
+      //       type: 'Black',
+      //       content: 'MORE OFTEN THAN NOT!'
+      //     },
+      //     {
+      //       type: 'White',
+      //       content: 'MAYBE, ON A GOOD DAY!'
+      //     }
+      //   ]
+      // },
+      // // question #27
+      // {
+      //   question: 'I like to think things through.',
+      //   answers: [
+      //     {
+      //       type: 'Blue',
+      //       content: 'YEP! THAT IS ME!'
+      //     },
+      //     {
+      //       type: 'Green',
+      //       content: 'I HAVE NO IDEA!'
+      //     },
+      //     {
+      //       type: 'Red',
+      //       content: "NO WAY NOT ME!"
+      //     },
+      //     {
+      //       type: 'White',
+      //       content: 'MORE OFTEN THAN NOT!'
+      //     },
+      //     {
+      //       type: 'Black',
+      //       content: 'MAYBE, ON A GOOD DAY!'
+      //     }
+      //   ]
+      // },
+      // // question #28
+      // {
+      //   question: 'I am a visual learner.',
+      //   answers: [
+      //     {
+      //       type: 'Green',
+      //       content: 'YEP! THAT IS ME!'
+      //     },
+      //     {
+      //       type: 'Black',
+      //       content: 'I HAVE NO IDEA!'
+      //     },
+      //     {
+      //       type: 'Blue',
+      //       content: "NO WAY NOT ME!"
+      //     },
+      //     {
+      //       type: 'White',
+      //       content: 'MORE OFTEN THAN NOT!'
+      //     },
+      //     {
+      //       type: 'Red',
+      //       content: 'MAYBE, ON A GOOD DAY!'
+      //     }
+      //   ]
+      // },
+      // // question #29
+      // {
+      //   question: 'I think carefully before I make decisions.',
+      //   answers: [
+      //     {
+      //       type: 'Blue',
+      //       content: 'YEP! THAT IS ME!'
+      //     },
+      //     {
+      //       type: 'Black',
+      //       content: 'I HAVE NO IDEA!'
+      //     },
+      //     {
+      //       type: 'Red',
+      //       content: "NO WAY NOT ME!"
+      //     },
+      //     {
+      //       type: 'White',
+      //       content: 'MORE OFTEN THAN NOT!'
+      //     },
+      //     {
+      //       type: 'Green',
+      //       content: 'MAYBE, ON A GOOD DAY!'
+      //     }
+      //   ]
+      // },
+      // // question #30
+      // {
+      //   question: 'I feel uneasy if my actions disrupt harmony in my social circle.',
+      //   answers: [
+      //     {
+      //       type: 'Green',
+      //       content: 'YEP! THAT IS ME!'
+      //     },
+      //     {
+      //       type: 'Blue',
+      //       content: 'I HAVE NO IDEA!'
+      //     },
+      //     {
+      //       type: 'Black',
+      //       content: "NO WAY NOT ME!"
+      //     },
+      //     {
+      //       type: 'White',
+      //       content: 'MORE OFTEN THAN NOT!'
+      //     },
+      //     {
+      //       type: 'Red',
+      //       content: 'MAYBE, ON A GOOD DAY!'
+      //     }
+      //   ]
+      // },
+      // // question #31
+      // {
+      //   question: 'I put my personal opinions aside in pursuit of fairness and justice.',
+      //   answers: [
+      //     {
+      //       type: 'White',
+      //       content: 'YEP! THAT IS ME!'
+      //     },
+      //     {
+      //       type: 'Green',
+      //       content: 'I HAVE NO IDEA!'
+      //     },
+      //     {
+      //       type: 'Red',
+      //       content: "NO WAY NOT ME!"
+      //     },
+      //     {
+      //       type: 'Blue',
+      //       content: 'MORE OFTEN THAN NOT!'
+      //     },
+      //     {
+      //       type: 'Black',
+      //       content: 'MAYBE, ON A GOOD DAY!'
+      //     }
+      //   ]
+      // },
+      // // question #32
+      // {
+      //   question: 'I tend to sit at the back or corner of the room.',
+      //   answers: [
+      //     {
+      //       type: 'Black',
+      //       content: 'YEP! THAT IS ME!'
+      //     },
+      //     {
+      //       type: 'Red',
+      //       content: 'I HAVE NO IDEA!'
+      //     },
+      //     {
+      //       type: 'Green',
+      //       content: "NO WAY NOT ME!"
+      //     },
+      //     {
+      //       type: 'Blue',
+      //       content: 'MORE OFTEN THAN NOT!'
+      //     },
+      //     {
+      //       type: 'White',
+      //       content: 'MAYBE, ON A GOOD DAY!'
+      //     }
+      //   ]
+      // },
+      // // question #33
+      // {
+      //   question: 'I like being the centre of attention.',
+      //   answers: [
+      //     {
+      //       type: 'Green',
+      //       content: 'YEP! THAT IS ME!'
+      //     },
+      //     {
+      //       type: 'Black',
+      //       content: 'I HAVE NO IDEA!'
+      //     },
+      //     {
+      //       type: 'White',
+      //       content: "NO WAY NOT ME!"
+      //     },
+      //     {
+      //       type: 'Blue',
+      //       content: 'MORE OFTEN THAN NOT!'
+      //     },
+      //     {
+      //       type: 'Red',
+      //       content: 'MAYBE, ON A GOOD DAY!'
+      //     }
+      //   ]
+      // },
+      // // question #34
+      // {
+      //   question: 'I solve problems by leaping between different ideas and possibilities.',
+      //   answers: [
+      //     {
+      //       type: 'Blue',
+      //       content: 'YEP! THAT IS ME!'
+      //     },
+      //     {
+      //       type: 'Green',
+      //       content: 'I HAVE NO IDEA!'
+      //     },
+      //     {
+      //       type: 'Red',
+      //       content: "NO WAY NOT ME!"
+      //     },
+      //     {
+      //       type: 'Black',
+      //       content: 'MORE OFTEN THAN NOT!'
+      //     },
+      //     {
+      //       type: 'White',
+      //       content: 'MAYBE, ON A GOOD DAY!'
+      //     }
+      //   ]
+      // },
+      // // question #35
+      // {
+      //   question: 'I like to complete my work before playing.',
+      //   answers: [
+      //     {
+      //       type: 'White',
+      //       content: 'YEP! THAT IS ME!'
+      //     },
+      //     {
+      //       type: 'Red',
+      //       content: 'I HAVE NO IDEA!'
+      //     },
+      //     {
+      //       type: 'Green',
+      //       content: "NO WAY NOT ME!"
+      //     },
+      //     {
+      //       type: 'Blue',
+      //       content: 'MORE OFTEN THAN NOT!'
+      //     },
+      //     {
+      //       type: 'Black',
+      //       content: 'MAYBE, ON A GOOD DAY!'
+      //     }
+      //   ]
+      // }
     ];
 
     this.state = {
@@ -927,7 +927,7 @@ class Question extends Component {
       Blue: 0, White: 0, Red: 0, Black: 0, Green: 0,
       resultColor1: "", resultColor2: "",
       userInfo: this.props.user,
-      guild: "",
+      guild: "", cmdrList: [],
 
     }
     this.handleClick = this.handleClick.bind(this)
@@ -935,7 +935,6 @@ class Question extends Component {
   } // end constructor
 
   componentDidMount() {
-
     console.log(this.state.userInfo);
   };
 
@@ -962,7 +961,7 @@ class Question extends Component {
     }
 
     // if the counter runs out of questions, get results
-    if (this.state.current === 34) {
+    if (this.state.current === 16) {
 
       const getColorResults = () => {
 
@@ -1051,6 +1050,16 @@ class Question extends Component {
                 .then(res => console.log("results posted"))
                 .catch(err => console.log(err));
             };
+            const getCMDRS4Color = (guild) => {
+              console.log(guild)
+              cmdrColor(guild)
+                .then(({ data: cmdrList }) => {
+                  this.setState({ cmdrList });
+                  console.log(this.state.cmdrList);
+                })
+                .catch(err => console.log(err));
+            };
+
             let firstGuild = oneColor;
             let secondGuild;
             if (!twoColor[1]) {
@@ -1064,62 +1073,63 @@ class Question extends Component {
               console.log("gruul");
               this.setState({ guild: "Gruul Clan" });
               saveMyScore(firstGuild, secondGuild, "Gruul Clan");
-
+              getCMDRS4Color("rg");
             }
             // 2 boros
             else if ((firstGuild == "Red" && secondGuild == "White") || (firstGuild == "White" && secondGuild == "Red")) {
               console.log("boros");
               this.setState({ guild: "Boros Legion" });
               saveMyScore(firstGuild, secondGuild, "Boros Legion");
-
+              getCMDRS4Color("rw");
             }
             // 3 izzet
             else if ((firstGuild == "Red" && secondGuild == "Blue") || (firstGuild == "Blue" && secondGuild == "Red")) {
               console.log("izzet");
               this.setState({ guild: "Izzet League" });
               saveMyScore(firstGuild, secondGuild, "Izzet League");
-
+              getCMDRS4Color("ur");
             }
             // 4 rakdos
             else if ((firstGuild == "Red" && secondGuild == "Black") || (firstGuild == "Black" && secondGuild == "Red")) {
               console.log("rakdos");
               this.setState({ guild: "Rakdos Cult" });
               saveMyScore(firstGuild, secondGuild, "Rakdos Cult");
-
+              getCMDRS4Color("br");
             }
             // 5 Azorius
             else if ((firstGuild == "Blue" && secondGuild == "White") || (firstGuild == "White" && secondGuild == "Blue")) {
               console.log("azor");
               this.setState({ guild: "Azorius Senate" });
               saveMyScore(firstGuild, secondGuild, "Azorius Senate");
-
+              getCMDRS4Color("uw");
             }
             // 6 orzhov
             else if ((firstGuild == "Black" && secondGuild == "White") || (firstGuild == "White" && secondGuild == "Black")) {
               console.log("orzhov");
               this.setState({ guild: "Orzhov Syndicate" });
               saveMyScore(firstGuild, secondGuild, "Orzhov Syndicate");
-
+              getCMDRS4Color("wb");
             }
             // 7 selesnaya
             else if ((firstGuild == "Green" && secondGuild == "White") || (firstGuild == "White" && secondGuild == "Green")) {
               console.log("seles");
               this.setState({ guild: "Selesnaya Conclave" });
               saveMyScore(firstGuild, secondGuild, "Selesnaya Conclave");
-
+              getCMDRS4Color("wg");
             }
             // 8 simic
             else if ((firstGuild == "Blue" && secondGuild == "Green") || (firstGuild == "Green" && secondGuild == "Blue")) {
               console.log("simic");
               this.setState({ guild: "Simic Combine" });
               saveMyScore(firstGuild, secondGuild, "Simic Combine");
-
+              getCMDRS4Color("ug");
             }
             // 9 golgari
             else if ((firstGuild == "Black" && secondGuild == "Green") || (firstGuild == "Green" && secondGuild == "Black")) {
               console.log("golgi");
               this.setState({ guild: "Golgari Swarm" });
               saveMyScore(firstGuild, secondGuild, "Golgari Swarm");
+              getCMDRS4Color("bg");
             }
             // 10 dimir
             else {
@@ -1127,14 +1137,8 @@ class Question extends Component {
               console.log("dimir");
               this.setState({ guild: "House Dimir" });
               saveMyScore(firstGuild, secondGuild, "House Dimir");
-
-
+              getCMDRS4Color("ub");
             }
-
-
-
-
-
           };
 
           guildPic(firstFinal, secondFinal);
@@ -1176,8 +1180,17 @@ class Question extends Component {
     } else {
       card =
         <>
-          <ResultsArea user={this.state.userInfo} Color1={this.state.resultColor1} Color2={this.state.resultColor2} />
-          <GuildArea Guild={this.state.guild} />
+          <Row>
+            <Column xs={12} md={6} lg={6}>
+              <ResultsArea user={this.state.userInfo} Guild={this.state.guild} Color1={this.state.resultColor1} Color2={this.state.resultColor2} />
+            </Column>
+            <Column xs={12} md={6} lg={6}>
+              <GuildArea Guild={this.state.guild} />
+            </Column>
+          </Row>
+          <Row>
+            <CMDRArea cmdrList={this.state.cmdrList}></CMDRArea>
+          </Row>
           {/* <MyColorGraph Black={this.state.Black} Blue={this.state.Blue} Red={this.state.Red}
             Green={this.state.Green} White={this.state.White} /> */}
         </>
@@ -1212,7 +1225,7 @@ function AnswerList(props) {
     answers.push(<Answer key={props.dataSet.answers[i].type.toString()} choice={props.dataSet.answers[i].type.toString()} handleClick={props.handleClick} answer={props.dataSet.answers[i].content} />)
   }
   return (
-    <div className="quizAnswerButtons"> 
+    <div className="quizAnswerButtons">
       {answers}
     </div>
   )
@@ -1245,15 +1258,14 @@ function ScoreArea(props, Colors) {
 function ResultsArea(props) {
   return (
     <div>
-      <Row>
-        <Column xs={12} md={6} lg={6}>
-          <Card title={"Congrats! you finished!"}>
-            <p>Thanks for taking the time, {props.user}</p>
-            <p>Your first color is: {props.Color1}</p>
-            <p>Your second color is: {props.Color2}</p>
-          </Card>
-        </Column>
-      </Row>
+
+      <div className="quizRes">
+        <p>Congrats! you finished!</p>
+        <p>Thanks for taking the time, {props.user}</p>
+        <p>Your colors are {props.Color1}, {props.Color2}</p>
+        <p>Check out some {props.Guild} commanders.</p>
+      </div>
+
     </div>
   )
 }
@@ -1262,41 +1274,75 @@ function GuildArea(props) {
 
   return (
     <div>
-      <Row>
-        <Column xs={12} md={6} lg={6}>
-          <Card title={"Your Guild is..."}>
-            <h3>{props.Guild}</h3>
-            <GetDamnIcons ofThis={props.Guild} />
-          </Card>
-        </Column>
-      </Row>
-    </div>
+      <div className="guildResults">
+        <h2>Your Guild is..</h2>
+        <h3>{props.Guild}</h3>
+        <GetDamnIcons ofThat={props.Guild} />
+      </div>
+    </div >
   )
 }
 
-function GetDamnIcons(ofThis) {
-  console.log(ofThis);
-  if (ofThis == "Rakdos Cult") {
-    return (<i className="ss ss-rakdos"></i>)
-  } else if (ofThis == "Boros Legion") {
-    return (<i className="ss ss-boros"></i>)
-  } else if (ofThis == "Simic Combine") {
-    return (<i className="ss ss-simic"></i>)
+function CMDRArea(props) {
+  let testthis = props.cmdrList.data;
+  console.log(testthis);
+return(<p>test</p>)
+  // testthis.map(card => {
+  //   return( 
+  //     <Column key={card.id} xs={3} md={2} lg={2}>
+  //       <div className="img-wrap">
+  //         <Card
+  //           // className="img-img"
+  //           // image={card.cardPic ? card.cardPic : undefined}
+  //         >
+  //           <div className="img-description">
+  //             <p>{card.name}</p>
+  //             <p>{card.edhrec_rank}</p>
+  //             <p>{card.image_uris.small}</p>
+  //             <p>{card.uri}</p>
+  //             {/* <button
+  //               onClick={() => this.handleRemoveCard(card.cardID)}
+  //               className="btn btn-primary btn-sm">
+  //               Remove
+  //                         </button>
+  //             <button
+  //               onClick={() => this.handleCMDR(card.cardID)}
+  //               className="btn btn-primary btn-sm">
+  //               ^^^
+  //                         </button> */}
+  //           </div>
+  //         </Card>
+  //       </div>
+  //     </Column>
+  //   )
+
+  // })
+
+};
+
+function GetDamnIcons(ofThat) {
+  let ofThis = ofThat.ofThat
+  if (ofThis === "Rakdos Cult") {
+    return (<i className="guildCon ss ss-rakdos"></i>)
+  } else if (ofThis === "Boros Legion") {
+    return (<i className="guildCon ss ss-boros"></i>)
+  } else if (ofThis === "Simic Combine") {
+    return (<i className="guildCon ss ss-simic"></i>)
   } else if (ofThis == "Orzhov Syndicate") {
-    return (<i className="ss ss-orzhov"></i>)
-  } else if (ofThis == "Golgari Swarm") {
-    return (<i className="ss ss-golgari"></i>)
-  } else if (ofThis == "Izzet League") {
-    return (<i className="ss ss-izzet"></i>)
-  } else if (ofThis == "Selesnaya Conclave") {
-    return (<i className="ss ss-selesnaya"></i>)
-  } else if (ofThis == "House Dimir") {
-    return (<i className="ss ss-dimir"></i>)
-  } else if (ofThis == "Azorious Senate") {
-    return (<i className="ss ss-azorius"></i>)
-  } else if (ofThis == "Gruul Clan") {
-    return (<i className="ss ss-gruul"></i>)
-  } else return (<h2>oops</h2>)
+    return (<i className="guildCon ss ss-orzhov"></i>)
+  } else if (ofThis === "Golgari Swarm") {
+    return (<i className="guildCon ss ss-golgari"></i>)
+  } else if (ofThis === "Izzet League") {
+    return (<i className="guildCon ss ss-izzet"></i>)
+  } else if (ofThis === "Selesnaya Conclave") {
+    return (<i className="guildCon ss ss-selesnya"></i>)
+  } else if (ofThis === "House Dimir") {
+    return (<i className="guildCon ss ss-dimir"></i>)
+  } else if (ofThis === "Azorius Senate") {
+    return (<i className="guildCon ss ss-azorius"></i>)
+  } else {
+    return (<i className="guildCon ss ss-gruul"></i>)
+  }
 }
 
 

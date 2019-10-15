@@ -7,7 +7,6 @@ import Card from '../components/Boxes/Card/Card';
 // import Result from '../components/Results';
 import { getAllUsers, getGuilds } from "../utils/API";
 import { Chart } from "react-google-charts";
-import { StickyContainer } from 'react-sticky';
 
 
 class Results extends Component {
@@ -122,7 +121,6 @@ class Results extends Component {
 
         return (
             <>
-                <StickyContainer>
                     <Jumbotron
                         fluid
                         bg={'dark'}
@@ -187,7 +185,6 @@ class Results extends Component {
                             </Column>
                         </Row>
                     </Container>
-                </StickyContainer>
             </>
         )
 

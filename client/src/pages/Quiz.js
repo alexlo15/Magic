@@ -6,7 +6,6 @@ import Container from '../components/Boxes/Container';
 import Card from '../components/Boxes/Card/Card';
 // import quizQuestions from "../utils/quizQuestions";
 import Question from "../components/Boxes/Question/Question";
-import { StickyContainer } from "react-sticky";
 // import { mtgSearch } from "../utils/API"
 
 class Quiz extends Component {
@@ -98,7 +97,6 @@ class Quiz extends Component {
         // Return is here
         return (
             <>
-                <StickyContainer>
                     <Jumbotron
                         fluid
                         bg={'dark'}
@@ -113,7 +111,6 @@ class Quiz extends Component {
 
                     </Row> */}
                     </Container >
-                </StickyContainer>
             </>
         );
 

@@ -13,10 +13,47 @@
     -ms-transform:scale(1.5);
     -o-transform:scale(1.5);
     transform:scale(1.5);
-    z-index: 0;
+    z-index: 10;
   }
-
+  .btn-primary{
+    align-content: center;
+    padding: 0;
+    margin-top: 5px;
+  display: block;
+  }
   .pageBod{
-
-    overflow:hidden; word-wrap:break-word
+    word-wrap:break-word;
+    overflow: scroll;
   }
+
+
+.searchBar{
+  float: left;
+}
+
+  /* relevant styles */
+.img-wrap {
+  position: relative;
+  /* height: 200px;
+  width: 257px; */
+}
+
+.img-description {
+  position: absolute;
+  top: 0;
+  bottom: 30;
+  left: 0;
+  right: 0;
+  background: rgba(29, 106, 154, 0.287);
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+
+  /* transition effect. not necessary */
+  transition: opacity .5s, visibility .5s;
+}
+
+.img-wrap:hover .img-description {
+  visibility: visible;
+  opacity: 1;
+}

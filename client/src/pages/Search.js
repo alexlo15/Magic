@@ -5,7 +5,6 @@ import Row from '../components/Boxes/Row';
 import Column from '../components/Boxes/Column';
 import Card from '../components/Boxes/Card/Card';
 import { mtgCardSearch, getSavedCards, saveCard } from '../utils/API';
-import { StickyContainer } from 'react-sticky';
 
 class Search extends Component {
   state = {
@@ -86,71 +85,74 @@ class Search extends Component {
   render() {
     return (
       <div className="pagebody">
-        <StickyContainer>
-          <Jumbotron
-            fluid
-            bg={'dark'}
-            color={'light'}
-            pageTitle={'Search For Cards'}
-          />
-          <Container>
-            <Row>
-              <Column xs={12} md={12} lg={12}>
-                <Card>
-                  <form onSubmit={this.handleFormSubmit}>
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Enter a keyword to search"
-                      onChange={this.handleInputChange}
-                      value={this.state.searchTerm}
-                      name="searchTerm"
-                    />
-                    {this.state.error && !this.state.searchTerm.length && (
-                      <div className="alert alert-danger my-2">
-                        {this.state.error}
-                      </div>
-                    )}
-                    <button type="submit" className="btn btn-block btn-dark mt-2">
-                      Lets go
+        <Jumbotron
+          fluid
+          bg={'dark'}
+          color={'light'}
+          pageTitle={'Search For Cards'}
+        />
+        <Container>
+          <Row>
+            <Column xs={12} md={12} lg={12}>
+              <Card>
+                <form onSubmit={this.handleFormSubmit}>
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Enter a keyword to search"
+                    onChange={this.handleInputChange}
+                    value={this.state.searchTerm}
+                    name="searchTerm"
+                  />
+                  {this.state.error && !this.state.searchTerm.length && (
+                    <div className="alert alert-danger my-2">
+                      {this.state.error}
+                    </div>
+                  )}
+                  <button type="submit" className="btn btn-block btn-dark mt-2">
+                    Lets go
                   </button>
-                  </form>
-                </Card>
-              </Column>
-              <Column xs={12} md={12} lg={12}>
-                <Row>
-                  {!this.state.cardList.length ? (
-                    <div></div>
-                  ) : (
-                      this.state.cardList.map(card => {
-                        return (
-                          <Column key={card.cardID} xs={2} md={2} lg={2}>
+                </form>
+              </Card>
+            </Column>
+            <Column xs={12} md={12} lg={12}>
+              <Row>
+                {!this.state.cardList.length ? (
+                  <div></div>
+                ) : (
+                    this.state.cardList.map(card => {
+                      return (
+                        <Column key={card.cardID} xs={2} md={2} lg={2}>
+                          <div className="img-wrap">
                             <Card
+                              className="img-img"
                               title={card.cardName}
                               image={card.cardPic ? card.cardPic : undefined}>
-
-                              <button
-                                disabled={
-                                  this.state.savedCardIds.includes(card.cardID)
-                                    ? true
-                                    : undefined
-                                }
-                                className={'btn btn-success btn-sm'}
-                                onClick={() =>
-                                  this.handeCardSave(card.cardID)
-                                }>
-                                Add to deck
-                          </button>
+                              <div className="img-description">
+                                <p>{card.cardName}</p>
+                                <button
+                                  disabled={
+                                    this.state.savedCardIds.includes(card.cardID)
+                                      ? true
+                                      : undefined
+                                  }
+                                  className={'btn btn-success btn-sm'}
+                                  onClick={() =>
+                                    this.handeCardSave(card.cardID)
+                                  }>
+                                  Add to deck
+                              </button>
+                              </div>
                             </Card>
-                          </Column>
-                        );
-                      })
-                    )}
-                </Row>
-              </Column>
-            </Row>
-          </Container>
-        </StickyContainer>
+                          </div>
+                        </Column>
+                      );
+                    })
+                  )}
+              </Row>
+            </Column>
+          </Row>
+        </Container>
       </div>
     );
   }

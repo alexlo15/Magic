@@ -6,7 +6,6 @@ import Column from '../../components/Boxes/Column';
 import Card from '../../components/Boxes/Card/Card';
 import { mtgCardSearch, getSavedCards, saveCard } from '../../utils/API';
 import { SocialIcon } from 'react-social-icons';
-import { StickyContainer } from 'react-sticky';
 import "./Home.css";
 
 class Home extends Component {
@@ -14,7 +13,6 @@ class Home extends Component {
     render() {
         return (
             <div className="pagebody">
-                <StickyContainer>
                     <Jumbotron
                         fluid
                         bg={'dark'}
@@ -60,7 +58,6 @@ class Home extends Component {
                             </Column>
                         </Row>
                     </Container>
-                </StickyContainer>
             </div>
         );
     }

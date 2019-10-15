@@ -5,7 +5,6 @@ import Row from '../components/Boxes/Row';
 import Column from '../components/Boxes/Column';
 import Card from '../components/Boxes/Card/Card'
 import { getAllDecks, removeDeck, saveDeck } from '../utils/API';
-import { StickyContainer } from 'react-sticky';
 // import { get } from 'mongoose';
 
 class Saved extends Component {
@@ -36,7 +35,6 @@ class Saved extends Component {
     render() {
         return (
             <>
-                <StickyContainer>
                     <Jumbotron
                         fluid
                         bg={'dark'}
@@ -67,7 +65,6 @@ class Saved extends Component {
                                 )}
                         </Row>
                     </Container>
-                </StickyContainer>
             </>
         );
     }

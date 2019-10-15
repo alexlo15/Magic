@@ -5,7 +5,6 @@ import Row from '../components/Boxes/Row';
 import Column from '../components/Boxes/Column';
 import Card from '../components/Boxes/Card/Card';
 import { mtgSearch } from "../utils/API"
-import { StickyContainer } from 'react-sticky';
 
 
 
@@ -64,7 +63,6 @@ class Commander extends Component {
     render() {
         return (
             <>
-                <StickyContainer>
                     <Jumbotron
                         fluid
                         bg={'dark'}
@@ -99,7 +97,6 @@ class Commander extends Component {
                             </Column>
                         </Row>
                     </Container>
-                </StickyContainer>
             </>
         );
     }

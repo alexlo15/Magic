@@ -115,7 +115,7 @@ class Search extends Component {
                   </button>
                 </form>
               </Card>
-              <AdSearch />
+              {/* <AdSearch /> */}
             </Column>
             <Column xs={12} md={12} lg={12}>
               <Row>

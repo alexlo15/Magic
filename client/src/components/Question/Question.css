@@ -22,11 +22,14 @@ margin:10px;
 }
 /* THESE ARE THE QUESTIONS */
 .questions{
-display: inline;
-text-align: center;
-color: black;
+/* display: inline;*/
+text-align: center; 
+color: antiquewhite;
 font-family: Arial, Helvetica, sans-serif;
-background-color: #797979;
+background-color: rgba(87, 86, 86, 0.555);
+border: black solid 2px;
+border-radius: 4px;
+box-shadow: 5px 5px #0000008f;
 }
 
 .quizRes{
@@ -36,20 +39,33 @@ background-color: #797979;
     border-bottom: navy 5px solid;
     border-right: darkgreen 5px solid;
     padding: 50px;
-    background-color: rgba(128, 128, 128, 0.459);
-}
+    background-color: rgba(87, 86, 86, 0.555);
+    border-radius: 4px;
+    box-shadow: 5px 5px #0000008f;}
+
 .guildResults{
     text-align: center;
     font-size: 20px;
     border-left: darkred 5px solid;
     border-bottom: black 5px solid;
     color: antiquewhite;
-    background-color: rgba(128, 128, 128, 0.459);
+    background-color: rgba(87, 86, 86, 0.555);
+    border-radius: 4px;
+    box-shadow: 5px 5px #0000008f;
 }
 .guildCon{
     font-size: 250px;
 }
-.guildCon:hover{
+.guildCon:hover, .questions:hover, .scoreBoard:hover{
     background-color: black;
-    color: antiquewhite;
+  color: gold;
 }
+
+.scoreBoard{
+    color:antiquewhite;
+    background-color: rgba(87, 86, 86, 0.555);
+    border: black solid 2px;
+    border-radius: 4px;
+    box-shadow: 5px 5px #0000008f;
+}
+

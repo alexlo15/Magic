@@ -44,9 +44,9 @@ class Home extends Component {
                                 <Column xs={12} md={12} lg={12}>
                                     <div className="iconHeader">
                                         <Row>
-                                            <Card title={"Thank you for checking out my page!"}>
+                                            <Card>
 
-                                                <p>Please checkout my other projects and pages.</p>
+                                                <p id="socialText">Please checkout my other projects and pages.</p>
                                                 <SocialIcon id="mediaIcons" target="_blank" url="https://alexlo15.github.io" />
                                                 <SocialIcon id="mediaIcons" target="_blank" url="https://www.linkedin.com/in/alexander-lo-154a33188/" />
                                                 <SocialIcon id="mediaIcons" target="_blank" url="https://docs.google.com/document/d/1eJDtlLm0e73J-ZIg6oOMsPVtNewKBPIrFBTJO02Wbkg/edit?usp=sharing" />

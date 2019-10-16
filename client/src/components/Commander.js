@@ -18,15 +18,18 @@ class Commander extends Component {
         error: null
     };
 
-    handleInputChange = event => {
-        const { name, value } = event.target;
-        this.setState({
-            [name]: value
-        });
-    };
+    componentDidMount() {
+        this.handleEDHSearch();
+    }
+    // handleInputChange = event => {
+    //     const { name, value } = event.target;
+    //     this.setState({
+    //         [name]: value
+    //     });
+    // };
 
     handleEDHSearch = (event) => {
-        event.preventDefault();
+        // event.preventDefault();
         mtgSearch()
             .then(res => {
 
@@ -45,16 +48,16 @@ class Commander extends Component {
             })
     };
 
-    handleFormSubmit = event => {
-        event.preventDefault();
+    // handleFormSubmit = event => {
+    //     event.preventDefault();
 
-        if (this.state.userName === '') {
-            return this.setState({ error: 'Please enter your name.' });
-        }
+    //     if (this.state.userName === '') {
+    //         return this.setState({ error: 'Please enter your name.' });
+    //     }
 
-        this.startQuiz();
+    //     this.startQuiz();
 
-    };
+    // };
 
 
 

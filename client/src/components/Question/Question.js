@@ -1243,7 +1243,7 @@ function QuizArea(props) {
 function ScoreArea(props, Colors) {
 
   return (
-    <div>
+    <div className="scoreBoard">
       <h3>Question {props.Counter + 1} of 35</h3>
       <h4>W: {props.White}</h4>
       <h4>U: {props.Blue}</h4>

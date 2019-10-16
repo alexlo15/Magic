@@ -4,6 +4,7 @@ import Container from '../components/Boxes/Container';
 import Row from '../components/Boxes/Row';
 import Column from '../components/Boxes/Column';
 import Card from '../components/Boxes/Card/Card';
+import AdSearch from '../components/AdSearch';
 import { mtgCardSearch, getSavedCards, saveCard } from '../utils/API';
 
 class Search extends Component {
@@ -114,6 +115,7 @@ class Search extends Component {
                   </button>
                 </form>
               </Card>
+              <AdSearch />
             </Column>
             <Column xs={12} md={12} lg={12}>
               <Row>

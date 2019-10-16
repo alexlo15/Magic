@@ -1,0 +1,13 @@
+.scoreTableBody{
+background-color: rgba(49, 172, 177, 0.644);
+color: antiquewhite;
+
+}
+
+tr:hover{
+    background-color: black;
+}
+
+td:hover{
+    background-color: coral;
+}

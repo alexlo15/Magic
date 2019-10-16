@@ -4,7 +4,7 @@ import Search from './pages/Search';
 import Saved from './pages/saved/Saved';
 import Quiz from './pages/Quiz';
 import Home from './pages/Home/Home';
-import Results from './pages/Results';
+import Results from './pages/Results/Results';
 import Decks from './pages/Decks';
 import UhOh404 from './pages/UhOh404';
 

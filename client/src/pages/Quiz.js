@@ -41,8 +41,9 @@ class Quiz extends Component {
         this.setState({
             showQuestions: true,
             showIntro: false,
-        });
-        console.log(this.state.userName);
+        })
+        console.log(this.state.userName)
+
     };
 
     handleFormSubmit = event => {
@@ -93,20 +94,20 @@ class Quiz extends Component {
         // Return is here
         return (
             <>
-                    <Jumbotron
-                        fluid
-                        bg={'dark'}
-                        color={'light'}
-                        pageTitle={'Search For A Commander!'}
-                    />
-                    <Container>
-                        {/* <Row>
+                <Jumbotron
+                    fluid
+                    bg={'dark'}
+                    color={'light'}
+                    pageTitle={'Search For A Commander!'}
+                />
+                <Container>
+                    {/* <Row>
                         <Column xs={12} md={12} lg={12}> */}
-                        {card}
-                        {/* </Column>
+                    {card}
+                    {/* </Column>
 
                     </Row> */}
-                    </Container >
+                </Container >
             </>
         );
 

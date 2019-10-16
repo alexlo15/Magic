@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import Jumbotron from '../components/Boxes/Jumbotron/Jumbotron';
-import Container from '../components/Boxes/Container';
-import Row from '../components/Boxes/Row';
-import Column from '../components/Boxes/Column';
-import Card from '../components/Boxes/Card/Card';
-// import Result from '../components/Results';
-import { getAllUsers, getGuilds } from "../utils/API";
+import Jumbotron from '../../components/Boxes/Jumbotron/Jumbotron';
+import Container from '../../components/Boxes/Container';
+import Row from '../../components/Boxes/Row';
+import Column from '../../components/Boxes/Column';
+import Card from '../../components/Boxes/Card/Card';
+import { getAllUsers, getGuilds } from "../../utils/API";
 import { Chart } from "react-google-charts";
+import "./Results.css";
 
 
 class Results extends Component {
@@ -84,19 +84,6 @@ class Results extends Component {
             Golg: counts["Golgari Swarm"],
             Izzet: counts["Izzet League"],
         })
-
-        // console.log(guildsData);
-        // console.log(guildList);
-        // console.log(this.state.Dimir);
-        // console.log(this.state.Gruul);
-        // console.log(this.state.Boros);
-        // console.log(this.state.Orz);
-        // console.log(this.state.Golg);
-        // console.log(this.state.Izzet);
-        // console.log(this.state.Seles);
-        // console.log(this.state.Simic);
-        // console.log(this.state.Rakdos);
-        // console.log(this.state.Azor);
     }
 
 
@@ -187,12 +174,7 @@ class Results extends Component {
                     </Container>
             </>
         )
-
     };
-
-
-
-
 };
 
 export default Results;

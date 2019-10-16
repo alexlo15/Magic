@@ -9,10 +9,9 @@ const saveUserResult = (req, res) => {
             res.json(err);
         });
 };
-
+// gets the last ten test takers
 const getUserResults = (req, res) => {
-
-    User.find()
+    User.find().limit(10).sort({$natural: -1})
         .then(dbUserData => res.json(dbUserData))
         .catch(err => {
             console.log(err);

@@ -7,3 +7,5 @@ most importantly it features results, because everyone likes to know how other p
 It will also contain a card search, and hopefully decklist capabilities. It's ever-changing as I get ideas or hit an wall.
 
 Currently working on deployment through Heroku.
+
+https://we-dh.herokuapp.com/
